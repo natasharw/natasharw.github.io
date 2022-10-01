@@ -97,25 +97,23 @@ en: &DEFAULT_EN
 
   team:
     title: "Contact Me"
-    text: "Contact me through one of the profiles below."
+    text: "Reach out to me on one of the platforms below"
     # subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
     section: team
     people:
       -
       - name: "Natasha Rose"
-        role: "Lead Marketer"
+        role: ""
         image: assets/img/team/2.jpg
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
           - url: https://github.com/natasharw
             icon: "fab fa-github"
-          - url: https://linkedin.com/natasharw
+          - url: https://linkedin.com/in/natasharw
             icon: fab fa-linkedin-in
       -
   contact:
-    title: "Contact Us"
-    text: "Lorem ipsum or call 123456789"
+    title: "Email Me"
+    text: ""
     section: contact
     name: "Name*"
     name-validation: "Please enter your name."
