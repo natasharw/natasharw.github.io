@@ -1,15 +1,17 @@
 ---
-title: Golden
-subtitle: Website Design
-layout: default
-modal-id: 3
-date: 2014-07-16
-img: golden.png
-thumbnail: golden-thumbnail.png
-alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.
+title: Feeling Wheel
+subtitle: iOS Application built with SwiftUI
+image: assets/img/portfolio/01-full.jpg
+alt: Shirts on a hanger
 
+caption:
+  title: Feeling Wheel
+  subtitle: iOS Application
+  thumbnail: assets/img/portfolio/01-thumbnail.jpg
 ---
+iOS Application built with SwiftUI of a feeling wheel
+
+{:.list-inline}
+- Date: October 2022
+- Name: Feeling Wheel
+- Category: Mental Health

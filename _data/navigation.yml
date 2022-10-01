@@ -17,11 +17,11 @@ en: &DEFAULT_EN
       section: portfolio
     # - title: "About"
     #   section: about
-    - title: "Timeline"
+    - title: "Work Experience"
       section: timeline
-    - title: "Contact "
+    - title: "Contact"
       section: team
-    - title: "Email Me"
+    - title: "Email"
       section: contact
 en-US:
   <<: *DEFAULT_EN
