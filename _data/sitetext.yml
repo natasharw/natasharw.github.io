@@ -42,7 +42,7 @@ en: &DEFAULT_EN
 
   timeline:
     title: "Work Experience"
-    text: ""
+    text: "My tech career so far"
     section: timeline
     # left is the default
     #start_align: "left"
@@ -50,27 +50,27 @@ en: &DEFAULT_EN
       - title: "Data Engineer"
         year: "2017-2021"
         desc: "Worked as an Analytics Data Engineer at Graze (FMCG) and Vonage (telecommunications)"
-        image: assets/img/timeline/1.jpg
+        image: assets/img/timeline/laptop-thumbnail.jpg
         alt:
       - title: "Started Swift and iOS development"
         year: "2020"
         # desc: "Started developing iOS applications"
-        image: assets/img/timeline/2.jpg
+        image: assets/img/timeline/sunrise-thumbnail.jpg
         alt:
       - title: "iOS Engineer at Surfline/Wavetrak Ltd"
         year: "May 2021-Today"
-        desc: "Feature and platform development for 4 surf and marine forecasting brands"
-        image: assets/img/timeline/3.jpg
+        desc: "Feature and platform development for 4 Surf and Marine forecast iOS apps"
+        image: assets/img/timeline/mountains-thumbnail.jpg
         alt: image alt text
         # you can enforce the alignment
         # align: right
     end: ""
 
-  # about:
-  #   title: "About Us"
-  #   text: "our story"
-  #   body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
-  #   section: about
+  about:
+    title: "Education and Awards"
+    text: ""
+    body: "**Bachelor of Science in Economics - 1st Class)** <br /> **White Rose Award for Outstanding Contribution to Leeds University Union**"
+    section: about
 
   clients:
     section: clients
@@ -92,22 +92,22 @@ en: &DEFAULT_EN
 
   team:
     title: "Contact Me"
-    text: "Reach out to me on one of the platforms below"
+    text: "Reach out on one of the platforms below"
     # subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
     section: team
     people:
-      -
+      - image: assets/img/team/plain-yellow.jpg
       - name: "Natasha Rose"
         role: ""
-        image: assets/img/team/2.jpg
+        image: assets/img/team/natasha.jpg
         social:
           - url: https://github.com/natasharw
             icon: "fab fa-github"
-          - url: https://linkedin.com/in/natasharw
+          - url: https://linkedin.com/in/natasha-r-wilson
             icon: fab fa-linkedin-in
-      -
+      - image: assets/img/team/plain-yellow.jpg
   contact:
-    title: "Email Me"
+    title: "Email"
     text: ""
     section: contact
     name: "Name*"
@@ -124,10 +124,10 @@ en: &DEFAULT_EN
   footer:
     legal: "Privacy Policy"
     social:
-      - url: https://linkedin.com/natasha-r-wilson
-        icon: "fab fa-linkedin-in"
       - url: https://github.com/natasharw
         icon: "fab fa-github"
+      - url: https://linkedin.com/in/natasha-r-wilson
+        icon: "fab fa-linkedin-in"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
