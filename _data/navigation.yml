@@ -11,18 +11,18 @@
 # -----------------
 en: &DEFAULT_EN
   nav:
-    - title: "What I Do"
+    - title: "About Me"
       section: services
     - title: "Portfolio"
       section: portfolio
     # - title: "About"
     #   section: about
-    - title: "Work Experience"
-      section: timeline
-    - title: "Contact"
+    # - title: "Work Experience"
+    #   section: timeline
+    - title: "Contact Me"
       section: team
-    - title: "Email"
-      section: contact
+    # - title: "Email"
+    #   section: contact
 en-US:
   <<: *DEFAULT_EN
 en-CA:
