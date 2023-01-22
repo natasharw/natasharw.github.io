@@ -1,19 +1,15 @@
 ---
 title: Feeling Wheel
-subtitle: iOS application built with SwiftUI
-image: assets/img/portfolio/feelings-full.jpg
-alt: Flowers in a vase
+subtitle: iOS application built with SwiftUI and Core Data
+# image: assets/img/portfolio/feeling-wheel-logo.png
+# alt: Flowers in a vase
 
 caption:
   title: Feeling Wheel
   subtitle: iOS Application
-  thumbnail: assets/img/portfolio/feelings-thumbnail.jpg
+  thumbnail: assets/img/portfolio/feeling-wheel-logo-cropped.png
 ---
 
-Coming to the App Store soon.
-<!-- [View in App Store](https://apps.apple.com/bg/app/repertoire-recipe-catalogue/id1590760504?platform=iphone){: .btn; color: blue} -->
+<a href="https://apps.apple.com/bg/app/feeling-wheel/id6444242001?platform=iphone"><b>View in App Store</b></a>
 
-{:.list-inline}
-- Date: October 2022
-- Name: Feeling Wheel
-- Category: Mental Health
+<!-- [View in App Store](https://apps.apple.com/bg/app/feeling-wheel/id6444242001?platform=iphone){: .btn; color: blue} -->

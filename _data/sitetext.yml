@@ -22,13 +22,13 @@ en: &DEFAULT_EN
     section: services
     list:
       - title: "Women in Tech Advocate"
-        desc: "Champion for levelling the playing field and bringing diverse voices to the table."
+        desc: "Champion for levelling the playing field and bringing diverse voices to the table"
         icon: fas fa-user
       - title: "iOS Engineer"
-        desc: "Passionate about building beautiful iOS applications."
+        desc: "Passionate about creating beautiful iOS applications"
         icon: fas fa-mobile #find more at https://fontawesome.com/icons
       - title: "Ex-Data Engineer"
-        desc: "Three years of experience with data warehouses, SQL, and data pipelines."
+        desc: "Three years of experience with data warehouses, SQL, and data pipelines"
         icon: fas fa-laptop
       # - title: "[Markdown](https://en.wikipedia.org/wiki/Markdown)"
       #   desc: "Your description here, full **Markdown** support"
@@ -49,10 +49,10 @@ en: &DEFAULT_EN
     events:
       - title: "Data Engineer"
         year: "2017-2021"
-        desc: "Worked as an Analytics Data Engineer at Graze (FMCG) and Vonage (telecommunications)"
+        desc: "Worked as a Data Engineer at Graze and Vonage"
         image: assets/img/timeline/laptop-thumbnail.jpg
         alt:
-      - title: "Started developing iOS applications in Swift"
+      - title: "Started iOS development"
         year: "January 2020"
         # desc: "Started developing iOS applications"
         image: assets/img/timeline/sunrise-thumbnail.jpg
@@ -107,7 +107,7 @@ en: &DEFAULT_EN
             icon: fab fa-linkedin-in
           - url: https://github.com/natasharw
             icon: "fab fa-github"
-          - url: https://medium.com/@roseios
+          - url: https://medium.com/@natasharw
             icon: "fab fa-medium"
       - image: assets/img/team/plain-yellow.jpg
   contact:
@@ -132,7 +132,7 @@ en: &DEFAULT_EN
         icon: "fab fa-linkedin-in"
       - url: https://github.com/natasharw
         icon: "fab fa-github"
-      - url: https://medium.com/@roseios
+      - url: https://medium.com/@natasharw
         icon: "fab fa-medium"
 
 en-US:
