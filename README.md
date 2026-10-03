@@ -16,6 +16,18 @@ There is also a separate `natasharw/legal` repo containing older copies of
 the same legal pages. It is superseded by the `legal/` directory here. Edit
 the pages in this repo, not that one.
 
+## Other repos can hide paths on this site
+
+Any other repo of mine with GitHub Pages turned on is served at
+`natasharw.github.io/<repo-name>/`, and that wins over a folder of the same
+name here. Until 3 October 2026 the old `natasharw/legal` repo still had Pages
+on, so it owned `/legal/` and every page added here after 14 September
+(Feeling Wheel support, In Your Own Words) returned 404.
+
+So if a page here 404s, check whether a repo with that name still has Pages
+on. To move an old repo's URLs into this site, add the redirect stubs here
+first, then turn off Pages on the old repo.
+
 ## Legal page URLs are registered with Apple
 
 App Store Connect holds the privacy policy and support URLs for each shipped
