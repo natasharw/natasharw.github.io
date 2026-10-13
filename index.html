@@ -155,9 +155,13 @@
   .trail .badge { align-self: flex-start; }
   .trail:hover .badge { background: var(--ink); color: var(--page); border-color: var(--ink); }
   /* The screenshot sits in its own clipped strip, so it can move without covering the text */
-  .peek { height: 190px; margin: 18px -20px 0; padding-top: 20px; overflow: hidden; display: flex; justify-content: center; }
-  .peek .shot { width: 170px; height: auto; align-self: flex-start; transform: translateY(8px) rotate(-3deg); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
-  .trail:hover .peek .shot { transform: translateY(-8px) rotate(0); }
+  .peek { height: 210px; margin: 16px -20px 0; padding-top: 14px; overflow: hidden; display: flex; justify-content: center; }
+  .peek .shot {
+    width: 180px; height: auto; align-self: flex-start;
+    border-radius: 18px 18px 0 0; border: 1px solid var(--line); box-shadow: none;
+    transform: translateY(10px); transition: transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .trail:hover .peek .shot { transform: translateY(-4px); }
 
   @media (max-width: 860px) {
     .featured { grid-template-columns: minmax(0, 1fr); padding: 28px 22px 0; gap: 8px; }
@@ -174,7 +178,8 @@
     .trail { position: relative; padding: 18px 140px 18px 18px; }
     .trail .top { align-items: flex-start; flex-direction: column; gap: 10px; }
     .peek { position: absolute; right: 0; bottom: 0; width: 140px; height: 170px; margin: 0; }
-    .peek .shot, .trail:hover .peek .shot { width: 112px; transform: translateY(4px) rotate(5deg); }
+    .peek { padding-top: 24px; }
+    .peek .shot, .trail:hover .peek .shot { width: 112px; transform: none; }
   }
 
   /* Privacy and support */
