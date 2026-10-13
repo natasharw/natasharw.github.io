@@ -43,5 +43,14 @@ the old paths now redirect. Apple still has the old URLs on file.
 ## Adding an app
 
 Copy an existing pair in `legal/`, keep the `<app>-privacy.html` /
-`<app>-support.html` naming, and add a card to `index.html` with the App
-Store link.
+`<app>-support.html` naming, then in `index.html`:
+
+1. Copy an existing `<li class="app">` row and change the name, description,
+   store links and `data-shots`.
+2. Add the icon and three screenshots to `assets/apps/` as
+   `<app>-icon.webp` and `<app>-shot0.webp` to `-shot2.webp`. The App Store
+   serves resized copies, e.g. swap the end of a screenshot URL for
+   `600x0w.webp` (icons `256x0w.webp`).
+3. Add the privacy and support links to the footer list.
+
+The page is light mode only, on purpose.
