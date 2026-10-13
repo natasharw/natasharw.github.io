@@ -135,6 +135,27 @@
   /* Group headings */
   .group { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin: 0 0 14px; }
 
+  /* Coming soon */
+  .soon {
+    display: flex; align-items: center; gap: 18px;
+    padding: 18px 22px; margin-bottom: 16px; border-radius: 20px;
+    border: 1.5px dashed #cfd6dc; background: linear-gradient(120deg, #f7f9fb, #ffffff 60%);
+    animation: rise .5s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .soon-mark {
+    width: 56px; height: 56px; flex-shrink: 0; border-radius: 22%;
+    display: grid; place-items: center; color: #ffffff;
+    background: linear-gradient(145deg, #2f6a8a, #1d3b4f);
+    box-shadow: 0 1px 3px rgba(0,0,0,.14);
+  }
+  .soon-mark svg { width: 40px; height: 40px; }
+  .soon-copy { flex: 1; min-width: 0; }
+  .soon-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-bottom: 2px; }
+  .soon h3 { font-size: 1.05rem; font-weight: 600; margin: 0; }
+  .soon-pill { font-size: .72rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: #e6edf4; color: #2f5a74; }
+  .soon p { margin: 0; color: var(--muted); font-size: .92rem; max-width: 40rem; }
+  .soon-watch { font-size: .85rem; font-weight: 500; color: var(--faint); white-space: nowrap; }
+
   /* Trail cards */
   .trails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 56px; }
   .trail {
@@ -175,6 +196,8 @@
     .featured:hover .f-shots .shot:nth-child(2) { transform: translate(-50%, 0); }
     .featured:hover .f-shots .shot:nth-child(3) { transform: translate(25%, 30px) rotate(7deg); }
     .trails { grid-template-columns: minmax(0, 1fr); }
+    .soon { flex-wrap: wrap; align-items: flex-start; }
+    .soon-watch { width: 100%; padding-left: 74px; }
     .trail { position: relative; padding: 18px 140px 18px 18px; }
     .trail .top { align-items: flex-start; flex-direction: column; gap: 10px; }
     .peek { position: absolute; right: 0; bottom: 0; width: 140px; height: 170px; margin: 0; }
@@ -238,6 +261,16 @@
   </section>
 
   <h2 class="group">Trail apps</h2>
+  <section class="soon" aria-labelledby="tm-name">
+    <div class="soon-mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48"><path d="M9 38c6-2 7-10 13-12s9 4 15-1 3-13 3-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5.5"/><circle cx="9" cy="38" r="3.2" fill="currentColor"/><circle cx="40" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+    </div>
+    <div class="soon-copy">
+      <div class="soon-head"><h3 id="tm-name">TrailMatch</h3><span class="soon-pill">Coming soon</span></div>
+      <p>How much of the great long-distance trails have you already done? Connect Strava or Apple Health and TrailMatch works it out.</p>
+    </div>
+    <span class="soon-watch">Watch this space</span>
+  </section>
   <div class="trails">
     <a class="trail" href="https://apps.apple.com/gb/app/id6747799266" aria-label="South West Coast Path+ on the App Store">
       <div class="body">
