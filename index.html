@@ -112,9 +112,14 @@
 
   /* Screenshot panel beside the list, for mouse users */
   .preview { position: sticky; top: 24px; }
-  .pair { display: flex; gap: 14px; align-items: flex-start; }
-  .pair .shot { width: calc(50% - 7px); }
-  .pair .shot:nth-child(2) { margin-top: 28px; }
+  /* Three screenshots fanned, the first one in front */
+  .pair { position: relative; height: 410px; }
+  .pair .shot { position: absolute; top: 0; left: 50%; width: 160px; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  .pair .shot:nth-child(1) { transform: translateX(-50%); z-index: 3; }
+  .pair .shot:nth-child(2) { transform: translate(-100%, 34px) rotate(-6deg) scale(.9); z-index: 2; }
+  .pair .shot:nth-child(3) { transform: translate(0%, 34px) rotate(6deg) scale(.9); z-index: 1; }
+  .preview:hover .pair .shot:nth-child(2) { transform: translate(-106%, 34px) rotate(-8deg) scale(.9); }
+  .preview:hover .pair .shot:nth-child(3) { transform: translate(6%, 34px) rotate(8deg) scale(.9); }
   .caption { margin: 14px 0 0; font-size: .88rem; color: var(--faint); text-align: center; }
 
   /* Screenshots open under the row, for touch screens and narrow windows */
@@ -331,7 +336,7 @@
 
   <div class="split">
   <ul class="apps" id="apps">
-    <li class="app" data-shots="assets/apps/greenhour-shot3.webp,assets/apps/greenhour-shot4.webp" data-name="Green Hour">
+    <li class="app" data-shots="assets/apps/greenhour-shot3.webp,assets/apps/greenhour-shot4.webp,assets/apps/greenhour-shot5.webp" data-name="Green Hour">
       <div class="row" tabindex="0" aria-expanded="false">
         <img class="icon" src="assets/apps/greenhour-icon.webp" alt="" width="48" height="48">
         <div class="t"><h3>Green Hour</h3><p>See how time outside changes how you feel.</p></div>
@@ -346,7 +351,7 @@
         <img class="shot" src="assets/apps/greenhour-shot5.webp" alt="Green Hour screenshot 3" width="600" height="1300" loading="lazy">
       </div>
     </li>
-    <li class="app" data-shots="assets/apps/iyow-shot3.webp,assets/apps/iyow-shot4.webp" data-name="In Your Own Words">
+    <li class="app" data-shots="assets/apps/iyow-shot3.webp,assets/apps/iyow-shot4.webp,assets/apps/iyow-shot5.webp" data-name="In Your Own Words">
       <div class="row" tabindex="0" aria-expanded="false">
         <img class="icon" src="assets/apps/iyow-icon.webp" alt="" width="48" height="48">
         <div class="t"><h3>In Your Own Words</h3><p>Practise saying it out loud before you have to say it for real.</p></div>
@@ -361,7 +366,7 @@
         <img class="shot" src="assets/apps/iyow-shot5.webp" alt="In Your Own Words screenshot 3" width="600" height="1300" loading="lazy">
       </div>
     </li>
-    <li class="app" data-shots="assets/apps/outlie-shot0.webp,assets/apps/outlie-shot2.webp" data-name="Outlie">
+    <li class="app" data-shots="assets/apps/outlie-shot0.webp,assets/apps/outlie-shot2.webp,assets/apps/outlie-shot1.webp" data-name="Outlie">
       <div class="row" tabindex="0" aria-expanded="false">
         <img class="icon" src="assets/apps/outlie-icon.webp" alt="" width="48" height="48">
         <div class="t"><h3>Outlie</h3><p>Three new map-shape puzzles every day.</p></div>
@@ -376,7 +381,7 @@
         <img class="shot" src="assets/apps/outlie-shot1.webp" alt="Outlie screenshot 3" width="600" height="1300" loading="lazy">
       </div>
     </li>
-    <li class="app" data-shots="assets/apps/cookedthis-shot0.webp,assets/apps/cookedthis-shot3.webp" data-name="CookedThis">
+    <li class="app" data-shots="assets/apps/cookedthis-shot0.webp,assets/apps/cookedthis-shot3.webp,assets/apps/cookedthis-shot1.webp" data-name="CookedThis">
       <div class="row" tabindex="0" aria-expanded="false">
         <img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="48" height="48">
         <div class="t"><h3>CookedThis</h3><span class="awards"><span class="award gold" title="RevenueCat Shipaton 2025, 1st place in the OneSignal category"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 9V7zm10 0v2c0 .3 0 .5-.1.8A2 2 0 0 0 18 8V7h-1zM6 20h12v1H6z"/></svg><span>Shipaton 2025 · 1st place, OneSignal category</span></span></span><p>Fitness tracking for your cooking.</p></div>
@@ -391,7 +396,7 @@
         <img class="shot" src="assets/apps/cookedthis-shot1.webp" alt="CookedThis screenshot 3" width="600" height="1300" loading="lazy">
       </div>
     </li>
-    <li class="app" data-shots="assets/apps/repertoire-shot0.webp,assets/apps/repertoire-shot1.webp" data-name="Repertoire">
+    <li class="app" data-shots="assets/apps/repertoire-shot0.webp,assets/apps/repertoire-shot1.webp,assets/apps/repertoire-shot2.webp" data-name="Repertoire">
       <div class="row" tabindex="0" aria-expanded="false">
         <img class="icon" src="assets/apps/repertoire-icon.webp" alt="" width="48" height="48">
         <div class="t"><h3>Repertoire</h3><p>Keep all your recipes in one place.</p></div>
@@ -412,6 +417,7 @@
     <div class="pair">
       <img class="shot" src="assets/apps/greenhour-shot3.webp" alt="" width="600" height="1300">
       <img class="shot" src="assets/apps/greenhour-shot4.webp" alt="" width="600" height="1300">
+      <img class="shot" src="assets/apps/greenhour-shot5.webp" alt="" width="600" height="1300">
     </div>
     <p class="caption">Green Hour</p>
   </div>
@@ -447,8 +453,8 @@
     current.classList.remove('on');
     current = app;
     app.classList.add('on');
-    const [a, b] = app.dataset.shots.split(',');
-    preview.innerHTML = `<div class="pair fade"><img class="shot" src="${a}" alt=""><img class="shot" src="${b}" alt=""></div><p class="caption">${app.dataset.name}</p>`;
+    const [a, b, c] = app.dataset.shots.split(',');
+    preview.innerHTML = `<div class="pair fade"><img class="shot" src="${a}" alt=""><img class="shot" src="${b}" alt=""><img class="shot" src="${c}" alt=""></div><p class="caption">${app.dataset.name}</p>`;
   }
 
   function toggle(app) {
