@@ -45,7 +45,8 @@ the old paths now redirect. Apple still has the old URLs on file.
 Copy an existing pair in `legal/`, keep the `<app>-privacy.html` /
 `<app>-support.html` naming, then in `index.html`:
 
-1. Copy an existing `<li class="app">` row and change the name, description,
+1. Copy an existing `<li class="app">` row in the "More apps" list (or a
+   `<article class="trail">` card for a trail app) and change the name, description,
    store links and `data-shots`.
 2. Add the icon and three screenshots to `assets/apps/` as
    `<app>-icon.webp` and `<app>-shot0.webp` to `-shot2.webp`. The App Store
