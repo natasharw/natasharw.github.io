@@ -108,7 +108,7 @@
   .featured {
     position: relative; overflow: hidden;
     display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center;
-    padding: 40px 44px; margin-bottom: 56px; border-radius: 28px;
+    padding: 40px 44px; margin-bottom: 40px; border-radius: 28px;
     background: linear-gradient(140deg, #eaf7f4 0%, #f5faf9 55%, #eef3fb 100%);
     border: 1px solid #d9ece8;
     animation: rise .6s cubic-bezier(.2,.8,.2,1) both;
@@ -157,7 +157,7 @@
   .soon-watch { font-size: .85rem; font-weight: 500; color: var(--faint); white-space: nowrap; }
 
   /* Trail cards */
-  .trails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 56px; }
+  .trails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 40px; }
   .trail {
     display: flex; flex-direction: column; overflow: hidden;
     padding: 20px 20px 0; border: 1px solid var(--line); border-radius: 20px; background: var(--page);
@@ -238,6 +238,7 @@
     </nav>
   </header>
 
+  <h2 class="group">My portfolio</h2>
   <section class="featured" aria-labelledby="fw-name">
     <div class="f-copy">
       <img class="icon f-icon" src="assets/apps/feelingwheel-icon.webp" alt="" width="80" height="80">
@@ -260,7 +261,6 @@
     </div>
   </section>
 
-  <h2 class="group">Trail apps</h2>
   <section class="soon" aria-labelledby="tm-name">
     <div class="soon-mark" aria-hidden="true">
       <svg viewBox="0 0 48 48"><path d="M9 38c6-2 7-10 13-12s9 4 15-1 3-13 3-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5.5"/><circle cx="9" cy="38" r="3.2" fill="currentColor"/><circle cx="40" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
@@ -299,7 +299,6 @@
     </a>
   </div>
 
-  <h2 class="group">More apps</h2>
   <div class="split">
   <ul class="apps" id="apps">
     <li class="app" data-shots="assets/apps/greenhour-shot0.webp,assets/apps/greenhour-shot2.webp" data-name="Green Hour">
