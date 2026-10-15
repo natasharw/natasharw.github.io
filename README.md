@@ -40,18 +40,33 @@ still exist: the app formerly called Rehearsal shipped as **In Your Own
 Words** in September 2026, its pages moved to `in-your-own-words-*.html`, and
 the old paths now redirect. Apple still has the old URLs on file.
 
+## How the pages fit together
+
+- `index.html` is the homepage. Apps are grouped by theme (Feelings,
+  Walking, Cooking, Play), with a dotted trail line between groups.
+- `apps/<app>/index.html` is a short page per app: screenshots, about,
+  what it does, and its support and privacy links. Feeling Wheel has no page
+  here because its card links to <https://feelingwheel.app/>.
+- `legal/index.html` lists every app's privacy, terms and support pages.
+- `assets/site.css` is shared by all of the above.
+
+There are two card types: the large Feeling Wheel card and the standard
+`.card` used for every other app. A card with the `wide` class spans its row
+and lays out side by side.
+
 ## Adding an app
 
 Copy an existing pair in `legal/`, keep the `<app>-privacy.html` /
-`<app>-support.html` naming, then in `index.html`:
+`<app>-support.html` naming, then:
 
-1. Copy an existing `<li class="app">` row in the "More apps" list (or a
-   `<article class="trail">` card for a trail app) and change the name, description,
-   store links and `data-shots`.
-2. Add the icon and three screenshots to `assets/apps/` as
-   `<app>-icon.webp` and `<app>-shot0.webp` to `-shot2.webp`. The App Store
-   serves resized copies, e.g. swap the end of a screenshot URL for
-   `600x0w.webp` (icons `256x0w.webp`).
-3. Add the privacy and support links to the footer list.
+1. Add `<app>-icon.webp` to `assets/apps/` and three plain in-app
+   screenshots (no marketing headlines, no device frame) to
+   `assets/apps/screens/` as `<app>-1.webp` to `<app>-3.webp`, 600px wide.
+   `-1` is the main one and sits in the middle of the card.
+2. In `index.html`, copy an `<article class="card">` in the right group and
+   change the name, description, store link, tint and screenshots. Add the
+   icon to the icon row.
+3. Copy a folder in `apps/` for the app page, and add the app to
+   `legal/index.html`.
 
 The page is light mode only, on purpose.

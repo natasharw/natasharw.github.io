@@ -3,594 +3,198 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Natasha Wilson | Apps</title>
-<meta name="description" content="iPhone and Android apps by Natasha Wilson, a mobile app developer in the United Kingdom.">
-<meta property="og:title" content="Natasha Wilson | Apps">
-<meta property="og:description" content="iPhone and Android apps by Natasha Wilson.">
+<title>Natasha Wilson | iPhone apps</title>
+<meta name="description" content="iPhone apps by Natasha Wilson, an independent developer in the UK, for walking Britain&#x27;s long trails, understanding how you feel and cooking at home.">
+<link rel="canonical" href="https://natasharw.github.io/">
+<meta property="og:title" content="Natasha Wilson | iPhone apps">
+<meta property="og:description" content="iPhone apps by Natasha Wilson, an independent developer in the UK, for walking Britain&#x27;s long trails, understanding how you feel and cooking at home.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://natasharw.github.io/">
-<meta property="og:image" content="https://natasharw.github.io/assets/apps/greenhour-shot0.webp">
+<meta property="og:image" content="https://natasharw.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="assets/apps/feelingwheel-icon.webp">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  /* Light mode only, on purpose */
-  :root {
-    --page: #ffffff;
-    --ink: #1b1b1d;
-    --muted: #616166;
-    --faint: #8e8e94;
-    --line: #e9e8e5;
-    --hover: #f6f6f4;
-    --shadow: 0 1px 2px rgba(20,20,25,.06), 0 10px 28px -10px rgba(20,20,25,.22);
-    color-scheme: light;
-  }
-  * { box-sizing: border-box; }
-  html { background: var(--page); }
-  body {
-    margin: 0; background: var(--page); color: var(--ink);
-    font: 16px/1.55 Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; }
-  img { display: block; max-width: 100%; height: auto; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 56px 24px 40px; }
-
-  /* About */
-  .me { margin-bottom: 36px; }
-  .me h1 { font-size: 1.45rem; font-weight: 700; letter-spacing: -.01em; margin: 0; }
-  .me p { margin: 2px 0 10px; color: var(--muted); }
-  .me nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: .95rem; font-weight: 500; }
-  .me nav a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; text-decoration-thickness: 1.5px; transition: text-decoration-color .2s; }
-  .me nav a:hover { text-decoration-color: currentColor; }
-
-  .split { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 56px; align-items: start; }
-
-  /* App rows */
-  .apps { list-style: none; margin: 0; padding: 0; }
-  .app { border-top: 1px solid var(--line); }
-  .app:last-child { border-bottom: 1px solid var(--line); }
-  .row {
-    display: flex; gap: 14px; align-items: center;
-    padding: 12px 10px; margin: 0 -10px; border-radius: 12px;
-    transition: background .2s;
-  }
-  .row:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
-  .icon { width: 48px; height: 48px; border-radius: 22%; box-shadow: 0 1px 3px rgba(0,0,0,.14); flex-shrink: 0; }
-  .t { flex: 1; min-width: 0; }
-  .t h3 { font-size: 1rem; font-weight: 600; margin: 0; }
-  .t p { margin: 0; color: var(--muted); font-size: .92rem; }
-  .chev { display: none; }
-
-  .stores { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; flex-shrink: 0; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 6px 13px; border-radius: 999px;
-    border: 1px solid var(--line); background: var(--page);
-    font-size: .82rem; font-weight: 600; text-decoration: none; white-space: nowrap;
-    transition: background .2s, color .2s, border-color .2s, transform .2s;
-  }
-  .badge svg { width: 14px; height: 14px; }
-  .badge:hover { background: var(--ink); color: var(--page); border-color: var(--ink); transform: translateY(-1px); }
-  .badge:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-  .shot { border-radius: 14px; box-shadow: var(--shadow); }
-
-  /* Screenshot panel beside the list, for mouse users */
-  .preview { position: sticky; top: 24px; }
-  /* Three screenshots fanned, the first one in front */
-  .pair { position: relative; height: 410px; }
-  .pair .shot { position: absolute; top: 0; left: 50%; width: 160px; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-  .pair .shot:nth-child(1) { transform: translateX(-50%); z-index: 3; }
-  .pair .shot:nth-child(2) { transform: translate(-100%, 34px) rotate(-6deg) scale(.9); z-index: 2; }
-  .pair .shot:nth-child(3) { transform: translate(0%, 34px) rotate(6deg) scale(.9); z-index: 1; }
-  .preview:hover .pair .shot:nth-child(2) { transform: translate(-106%, 34px) rotate(-8deg) scale(.9); }
-  .preview:hover .pair .shot:nth-child(3) { transform: translate(6%, 34px) rotate(8deg) scale(.9); }
-  .caption { margin: 14px 0 0; font-size: .88rem; color: var(--faint); text-align: center; }
-
-  /* Screenshots open under the row, for touch screens and narrow windows */
-  .inline { display: none; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 0 18px 62px; }
-  .inline .shot { width: 150px; flex-shrink: 0; scroll-snap-align: start; box-shadow: none; border: 1px solid var(--line); }
-
-  @media (hover: hover) and (min-width: 861px) {
-    .row:hover, .app.on .row { background: var(--hover); }
-  }
-  @media (hover: none), (max-width: 860px) {
-    .split { grid-template-columns: minmax(0, 1fr); }
-    .preview { display: none; }
-    .row { cursor: pointer; flex-wrap: wrap; }
-    .chev { display: block; width: 20px; height: 20px; color: var(--faint); transition: transform .25s; }
-    .app.open .chev { transform: rotate(180deg); }
-    .app.open .inline { display: flex; }
-    .row .stores { width: 100%; justify-content: flex-start; padding-left: 62px; }
-  }
-
-  /* Icon row that jumps to each app */
-  html { scroll-behavior: smooth; }
-  .icon-row { display: flex; flex-wrap: wrap; gap: 12px; margin: -8px 0 36px; }
-  .icon-row a { display: block; border-radius: 22%; transition: transform .25s cubic-bezier(.2,.8,.2,1); }
-  .icon-row a:hover { transform: translateY(-3px) scale(1.05); }
-  .icon-row a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-  .icon-row .icon { width: 52px; height: 52px; display: grid; place-items: center; }
-  .soon-mark.mini svg { width: 36px; height: 36px; }
-  .featured, .soon, .trail, .app { scroll-margin-top: 24px; }
-  @keyframes flash { 0%, 100% { box-shadow: 0 0 0 0 rgba(31,158,148,0); } 30% { box-shadow: 0 0 0 4px rgba(31,158,148,.35); } }
-  .flash { animation: flash 1.4s ease-out; }
-  .app.flash { animation: none; }
-  .app.flash .row { animation: flash 1.4s ease-out; }
-
-  /* Featured app */
-  .featured {
-    position: relative; overflow: hidden;
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center;
-    padding: 40px 44px; margin-bottom: 40px; border-radius: 28px;
-    background: linear-gradient(140deg, #eaf7f4 0%, #f5faf9 55%, #eef3fb 100%);
-    border: 1px solid #d9ece8;
-    animation: rise .6s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .f-icon { width: 80px; height: 80px; margin-bottom: 18px; box-shadow: 0 2px 6px rgba(0,0,0,.12), 0 14px 30px -12px rgba(31,158,148,.6); }
-  .featured h2 { font-size: 2rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; margin: 0 0 8px; }
-  .f-desc { color: var(--muted); font-size: 1.05rem; margin: 0 0 18px; max-width: 26rem; }
-  .f-facts { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; font-weight: 500; }
-  .f-facts li { padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.75); border: 1px solid #d9ece8; }
-  .stars { color: #e6a400; letter-spacing: 1px; }
-  .featured .stores { justify-content: flex-start; }
-  .featured .badge { padding: 10px 18px; font-size: .92rem; background: var(--ink); color: var(--page); border-color: var(--ink); }
-  .featured .badge svg { width: 16px; height: 16px; }
-  .featured .badge:hover { background: #000; box-shadow: var(--shadow); transform: translateY(-2px); }
-  .f-shots { position: relative; height: 380px; }
-  .f-shots .shot { position: absolute; width: 170px; top: 50%; left: 50%; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-  .f-shots .shot:nth-child(1) { transform: translate(-130%, -46%) rotate(-7deg); }
-  .f-shots .shot:nth-child(2) { transform: translate(-50%, -50%); z-index: 2; }
-  .f-shots .shot:nth-child(3) { transform: translate(30%, -46%) rotate(7deg); }
-  .featured:hover .f-shots .shot:nth-child(1) { transform: translate(-138%, -48%) rotate(-9deg); }
-  .featured:hover .f-shots .shot:nth-child(2) { transform: translate(-50%, -53%); }
-  .featured:hover .f-shots .shot:nth-child(3) { transform: translate(38%, -48%) rotate(9deg); }
-
-  /* Group headings */
-  .group { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin: 0 0 14px; }
-
-  /* Coming soon */
-  .soon {
-    display: flex; align-items: center; gap: 18px;
-    padding: 18px 22px; margin-bottom: 16px; border-radius: 20px;
-    border: 1.5px dashed #cfd6dc; background: linear-gradient(120deg, #f7f9fb, #ffffff 60%);
-    animation: rise .5s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .soon-mark {
-    width: 56px; height: 56px; flex-shrink: 0; border-radius: 22%;
-    display: grid; place-items: center; color: #ffffff;
-    background: linear-gradient(145deg, #2f6a8a, #1d3b4f);
-    box-shadow: 0 1px 3px rgba(0,0,0,.14);
-  }
-  .soon-mark svg { width: 40px; height: 40px; }
-  .soon-copy { flex: 1; min-width: 0; }
-  .soon-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-bottom: 2px; }
-  .soon h3 { font-size: 1.05rem; font-weight: 600; margin: 0; }
-  .soon-pill { font-size: .72rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: #e6edf4; color: #2f5a74; }
-  .soon p { margin: 0; color: var(--muted); font-size: .92rem; max-width: 40rem; }
-  .soon-watch { font-size: .85rem; font-weight: 500; color: var(--faint); white-space: nowrap; }
-
-  /* Trail cards */
-  .trails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 40px; }
-  .trail {
-    display: flex; flex-direction: column; overflow: hidden;
-    padding: 20px 20px 0; border: 1px solid var(--line); border-radius: 20px; background: var(--page);
-    color: inherit; text-decoration: none;
-    transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s;
-    animation: rise .5s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .trail:nth-child(2) { animation-delay: .06s; } .trail:nth-child(3) { animation-delay: .12s; }
-  .trail:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
-  .trail:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-  .trail .body { flex: 1; }
-  .trail .top { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
-  .trail h3 { font-size: 1rem; font-weight: 600; margin: 0; line-height: 1.3; }
-  .trail p { margin: 0 0 14px; color: var(--muted); font-size: .9rem; }
-  .trail .rating { margin: -8px 0 14px; font-size: .85rem; font-weight: 500; color: var(--ink); }
-  .trail .badge { align-self: flex-start; }
-  .trail:hover .badge { background: var(--ink); color: var(--page); border-color: var(--ink); }
-  /* The screenshot sits in its own clipped strip, so it can move without covering the text */
-  .peek { height: 300px; margin: 18px -20px 0; padding-top: 24px; overflow: hidden; display: flex; justify-content: center; background: var(--tint); border-top: 1px solid var(--line); }
-  .peek .shot {
-    width: 220px; height: auto; align-self: flex-start;
-    border-radius: 18px 18px 0 0; border: 1px solid rgba(0,0,0,.06); box-shadow: 0 -2px 14px -6px rgba(20,20,25,.18);
-    transform: translateY(10px); transition: transform .45s cubic-bezier(.2,.8,.2,1);
-  }
-  .trail:hover .peek .shot { transform: translateY(-4px); }
-
-  /* Award winners: dark cards so they read as awards, one metal per placing */
-  .winners { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 40px; }
-  .winner {
-    --m1: #fbe7a1; --m2: #e3b44c; --m3: #a8741a; --glow: rgba(227,180,76,.26);
-    position: relative; overflow: hidden; scroll-margin-top: 24px;
-    display: flex; flex-direction: column; padding: 28px 28px 0; border-radius: 24px;
-    color: #f5f2ec;
-    background: radial-gradient(90% 70% at 0% 0%, var(--glow), transparent 60%), linear-gradient(155deg, #23222a 0%, #151419 100%);
-    border: 1px solid color-mix(in srgb, var(--m2) 30%, transparent);
-    box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 24px 48px -24px rgba(20,18,10,.55);
-    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
-    animation: rise .6s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .winner.silver { --m1: #ffffff; --m2: #c9ced6; --m3: #7f8692; --glow: rgba(201,206,214,.2); }
-  .winner.bronze { --m1: #f9d6b4; --m2: #d38b4f; --m3: #8e4f22; --glow: rgba(211,139,79,.24); }
-  .winner:hover { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 32px 60px -24px rgba(20,18,10,.6); }
-  /* A single light sweep across the card when it first appears */
-  .winner::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.09) 50%, transparent 65%);
-    transform: translateX(-100%); animation: sweep 1.6s .5s ease-out both;
-  }
-  @keyframes sweep { to { transform: translateX(100%); } }
-
-  .w-medal { position: relative; width: 104px; height: 104px; display: grid; place-items: center; flex-shrink: 0; color: var(--m2); }
-  .w-medal svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); }
-  .w-medal::before { content: ""; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, var(--glow), transparent 70%); }
-  .w-rank { position: relative; text-align: center; line-height: 1; }
-  .w-rank b {
-    display: block; font-size: 1.55rem; font-weight: 700; letter-spacing: -.03em;
-    background: linear-gradient(180deg, var(--m1) 10%, var(--m2) 55%, var(--m3) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .w-rank span { display: block; margin-top: 3px; font-size: .58rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--m2); }
-
-  .w-copy { margin-top: 18px; }
-  .w-event { margin: 0 0 12px; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--m2); }
-  .w-event a { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
-  .w-event a:hover { color: var(--m1); border-color: currentColor; }
-  .w-event a:focus-visible { outline: 2px solid var(--m2); outline-offset: 3px; border-radius: 3px; }
-  .w-event svg { width: 10px; height: 10px; }
-  .w-app { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .w-app .icon { width: 44px; height: 44px; box-shadow: 0 0 0 1px rgba(255,255,255,.1), 0 4px 12px rgba(0,0,0,.4); }
-  .w-app h3 { margin: 0; font-size: 1.35rem; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }
-  .w-award { margin: 0 0 4px; font-size: .95rem; font-weight: 600; color: #ffffff; }
-  .w-desc { margin: 0 0 18px; font-size: .92rem; color: rgba(245,242,236,.62); }
-  .winner .stores { justify-content: flex-start; }
-  .winner .badge { background: #ffffff; color: #151419; border-color: #ffffff; }
-  .winner .badge:hover { background: var(--m1); border-color: var(--m1); color: #151419; }
-
-  .w-shots { position: relative; height: 200px; margin: 22px -28px 0; overflow: hidden; }
-  .w-shots .shot { position: absolute; top: 24px; left: 50%; width: 128px; border-radius: 14px; box-shadow: 0 10px 30px -8px rgba(0,0,0,.6); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-  .w-shots .shot:nth-child(1) { transform: translate(-128%, 26px) rotate(-8deg); }
-  .w-shots .shot:nth-child(2) { transform: translate(-50%, 0); z-index: 2; }
-  .w-shots .shot:nth-child(3) { transform: translate(28%, 26px) rotate(8deg); }
-  .winner:hover .w-shots .shot:nth-child(1) { transform: translate(-136%, 22px) rotate(-10deg); }
-  .winner:hover .w-shots .shot:nth-child(2) { transform: translate(-50%, -6px); }
-  .winner:hover .w-shots .shot:nth-child(3) { transform: translate(36%, 22px) rotate(10deg); }
-
-  /* With only one winner the card runs the full width: medal, copy, then screenshots */
-  @media (min-width: 861px) {
-    .winner:only-child { display: grid; grid-template-columns: 140px minmax(0, 1fr) 400px; gap: 36px; align-items: center; padding: 0 0 0 44px; }
-    .winner:only-child .w-medal { width: 140px; height: 140px; }
-    .winner:only-child .w-rank b { font-size: 2.1rem; }
-    .winner:only-child .w-rank span { font-size: .66rem; }
-    .winner:only-child .w-copy { margin: 0; padding: 36px 0; }
-    .winner:only-child .w-app h3 { font-size: 1.6rem; }
-    .winner:only-child .w-shots { align-self: end; height: 290px; margin: 0; }
-    .winner:only-child .w-shots .shot { width: 150px; top: 30px; }
-  }
-
-  @media (max-width: 860px) {
-    .featured { grid-template-columns: minmax(0, 1fr); padding: 28px 22px 0; gap: 8px; }
-    .featured h2 { font-size: 1.6rem; }
-    .f-shots { height: 300px; }
-    .f-shots .shot { width: 140px; top: 20px; }
-    .f-shots .shot:nth-child(1) { transform: translate(-125%, 30px) rotate(-7deg); }
-    .f-shots .shot:nth-child(2) { transform: translate(-50%, 0); }
-    .f-shots .shot:nth-child(3) { transform: translate(25%, 30px) rotate(7deg); }
-    .featured:hover .f-shots .shot:nth-child(1) { transform: translate(-125%, 30px) rotate(-7deg); }
-    .featured:hover .f-shots .shot:nth-child(2) { transform: translate(-50%, 0); }
-    .featured:hover .f-shots .shot:nth-child(3) { transform: translate(25%, 30px) rotate(7deg); }
-    .trails { grid-template-columns: minmax(0, 1fr); }
-    .soon { flex-wrap: wrap; align-items: flex-start; }
-    .soon-watch { width: 100%; padding-left: 74px; }
-    .trail { position: relative; padding: 18px 140px 18px 18px; }
-    .trail .top { align-items: flex-start; flex-direction: column; gap: 10px; }
-    .peek { position: absolute; right: 0; bottom: 0; width: 140px; height: 170px; margin: 0; }
-    .peek { padding-top: 24px; }
-    .peek .shot, .trail:hover .peek .shot { width: 112px; transform: none; }
-  }
-
-  /* Privacy and support */
-  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: .85rem; color: var(--faint); }
-  footer h2 { font-size: .85rem; font-weight: 600; color: var(--muted); margin: 0 0 8px; }
-  footer ul { list-style: none; margin: 0; padding: 0; columns: 3 230px; column-gap: 24px; }
-  footer li { margin-bottom: 4px; break-inside: avoid; }
-  footer a { color: var(--faint); }
-  footer a:hover { color: var(--ink); }
-
-  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  .apps .app { animation: rise .5s cubic-bezier(.2,.8,.2,1) both; }
-  .apps .app:nth-child(2) { animation-delay: .04s; } .apps .app:nth-child(3) { animation-delay: .08s; }
-  .apps .app:nth-child(4) { animation-delay: .12s; } .apps .app:nth-child(5) { animation-delay: .16s; }
-  .apps .app:nth-child(6) { animation-delay: .2s; }  .apps .app:nth-child(7) { animation-delay: .24s; }
-  .apps .app:nth-child(8) { animation-delay: .28s; } .apps .app:nth-child(9) { animation-delay: .32s; }
-  .fade { animation: rise .4s cubic-bezier(.2,.8,.2,1) both; }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <div class="wrap">
 
-  <header class="me">
+  <header class="hero">
     <h1>Natasha Wilson</h1>
-    <p>Mobile App Developer · Senior Software Engineer · United Kingdom</p>
-    <nav>
+    <p class="lede">I make iPhone apps about the things I care about: walking Britain's long trails, understanding how I feel, and cooking at home.</p>
+    <p class="sub">I'm a senior software engineer in the UK, and I design, build and support each of these apps myself.</p>
+    <ul class="proof">
+      <li>9 apps on the App Store</li>
+      <li>4.8 average from 260+ ratings</li>
+      <li><a href="https://www.revenuecat.com/blog/company/shipaton-2025-winners#onesignal-boost-award">1st place, RevenueCat Shipaton 2025</a></li>
+    </ul>
+    <nav class="links" aria-label="Contact">
+      <a href="mailto:flourishtechcoaching@gmail.com">Email me</a>
       <a href="https://www.linkedin.com/in/natasha-r-wilson/">LinkedIn</a>
       <a href="https://github.com/natasharw">GitHub</a>
-      <a href="mailto:flourishtechcoaching@gmail.com">flourishtechcoaching@gmail.com</a>
     </nav>
   </header>
 
   <nav class="icon-row" aria-label="Jump to an app">
-      <a href="#feelingwheel" aria-label="Feeling Wheel" title="Feeling Wheel"><img class="icon" src="assets/apps/feelingwheel-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#trailmatch" aria-label="TrailMatch, coming soon" title="TrailMatch, coming soon"><span class="icon soon-mark mini"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 38c6-2 7-10 13-12s9 4 15-1 3-13 3-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5.5"/><circle cx="9" cy="38" r="3.2" fill="currentColor"/><circle cx="40" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></span></a>
-      <a href="#swcp" aria-label="South West Coast Path+" title="South West Coast Path+"><img class="icon" src="assets/apps/swcp-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#c2c" aria-label="Coast to Coast Walk UK" title="Coast to Coast Walk UK"><img class="icon" src="assets/apps/c2c-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#whw" aria-label="West Highland Way Explorer" title="West Highland Way Explorer"><img class="icon" src="assets/apps/whw-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#cookedthis" aria-label="CookedThis" title="CookedThis"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#greenhour" aria-label="Green Hour" title="Green Hour"><img class="icon" src="assets/apps/greenhour-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#iyow" aria-label="In Your Own Words" title="In Your Own Words"><img class="icon" src="assets/apps/iyow-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#outlie" aria-label="Outlie" title="Outlie"><img class="icon" src="assets/apps/outlie-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#repertoire" aria-label="Repertoire" title="Repertoire"><img class="icon" src="assets/apps/repertoire-icon.webp" alt="" width="52" height="52"></a>
+    <a href="#feelingwheel" aria-label="Feeling Wheel" title="Feeling Wheel"><img class="icon" src="assets/apps/feelingwheel-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#greenhour" aria-label="Green Hour" title="Green Hour"><img class="icon" src="assets/apps/greenhour-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#iyow" aria-label="In Your Own Words" title="In Your Own Words"><img class="icon" src="assets/apps/iyow-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#trailmatch" aria-label="TrailMatch, coming soon" title="TrailMatch, coming soon"><span class="icon mark"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 38c6-2 7-10 13-12s9 4 15-1 3-13 3-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5.5"/><circle cx="9" cy="38" r="3.2" fill="currentColor"/><circle cx="40" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></span></a>
+    <a href="#swcp" aria-label="South West Coast Path+" title="South West Coast Path+"><img class="icon" src="assets/apps/swcp-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#c2c" aria-label="Coast to Coast Walk UK" title="Coast to Coast Walk UK"><img class="icon" src="assets/apps/c2c-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#whw" aria-label="West Highland Way Explorer" title="West Highland Way Explorer"><img class="icon" src="assets/apps/whw-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#cookedthis" aria-label="CookedThis" title="CookedThis"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#repertoire" aria-label="Repertoire" title="Repertoire"><img class="icon" src="assets/apps/repertoire-icon.webp" alt="" width="48" height="48"></a>
+    <a href="#outlie" aria-label="Outlie" title="Outlie"><img class="icon" src="assets/apps/outlie-icon.webp" alt="" width="48" height="48"></a>
   </nav>
 
-  <h2 class="group">My portfolio</h2>
-  <section class="featured" id="feelingwheel" aria-labelledby="fw-name">
-    <div class="f-copy">
-      <img class="icon f-icon" src="assets/apps/feelingwheel-icon.webp" alt="" width="80" height="80">
-      <h2 id="fw-name">Feeling Wheel</h2>
-      <p class="f-desc">Find the exact word for how you feel. Feeling Wheel helps you identify your emotions, understand them better and build emotional intelligence over time.</p>
-      <ul class="f-facts">
-        <li><span class="stars" aria-hidden="true">★★★★★</span> 4.8 from 204 ratings</li>
-        <li>iPhone, iPad and Android</li>
-        <li>English, French and Spanish</li>
-      </ul>
-      <div class="stores">
-        <a class="badge" href="https://apps.apple.com/gb/app/feeling-wheel/id6444242001" aria-label="Feeling Wheel on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.natasharw.feelingwheel" aria-label="Feeling Wheel on Google Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.8v18.4c0 .4.4.7.8.5l15.5-8.9c.4-.2.4-.8 0-1L4.8 2.3c-.4-.2-.8.1-.8.5z"/></svg>Google Play</a>
-      </div>
-    </div>
-    <div class="f-shots" aria-hidden="true">
-      <img class="shot" src="assets/apps/feelingwheel-shot2.webp" alt="" width="600" height="1300">
-      <img class="shot" src="assets/apps/feelingwheel-shot0.webp" alt="" width="600" height="1300">
-      <img class="shot" src="assets/apps/feelingwheel-shot4.webp" alt="" width="600" height="1300">
-    </div>
-  </section>
-
-  <section class="soon" id="trailmatch" aria-labelledby="tm-name">
-    <div class="soon-mark" aria-hidden="true">
-      <svg viewBox="0 0 48 48"><path d="M9 38c6-2 7-10 13-12s9 4 15-1 3-13 3-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5.5"/><circle cx="9" cy="38" r="3.2" fill="currentColor"/><circle cx="40" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
-    </div>
-    <div class="soon-copy">
-      <div class="soon-head"><h3 id="tm-name">TrailMatch</h3><span class="soon-pill">Coming soon</span></div>
-      <p>Turn activities you've already done into progress on trails. Connect Strava or Apple Health and watch it fill in.</p>
-    </div>
-    <span class="soon-watch">Watch this space</span>
-  </section>
-  <div class="trails">
-    <a class="trail" id="swcp" href="https://apps.apple.com/gb/app/id6747799266" aria-label="South West Coast Path+ on the App Store">
-      <div class="body">
-        <div class="top"><img class="icon" src="assets/apps/swcp-icon.webp" alt="" width="48" height="48"><h3>South West Coast Path+</h3></div>
-        <p>A scratch-off map and guide for the South West Coast Path.</p>
-      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.7 from 53 ratings</p>
-      </div>
-      <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</span>
-      <div class="peek" style="--tint:#e6edf4"><img class="shot" src="assets/apps/swcp-card.webp" alt="South West Coast Path+ screenshot" width="600" height="800" loading="lazy"></div>
-    </a>
-    <a class="trail" id="c2c" href="https://apps.apple.com/gb/app/id6761413697" aria-label="Coast to Coast Walk UK on the App Store">
-      <div class="body">
-        <div class="top"><img class="icon" src="assets/apps/c2c-icon.webp" alt="" width="48" height="48"><h3>Coast to Coast Walk UK</h3></div>
-        <p>A scratch-off map and guide for the Coast to Coast walk.</p>
-      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.7 from 10 ratings</p>
-      </div>
-      <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</span>
-      <div class="peek" style="--tint:#fbf1d9"><img class="shot" src="assets/apps/c2c-card.webp" alt="Coast to Coast Walk UK screenshot" width="600" height="800" loading="lazy"></div>
-    </a>
-    <a class="trail" id="whw" href="https://apps.apple.com/gb/app/id6768373231" aria-label="West Highland Way Explorer on the App Store">
-      <div class="body">
-        <div class="top"><img class="icon" src="assets/apps/whw-icon.webp" alt="" width="48" height="48"><h3>West Highland Way Explorer</h3></div>
-        <p>A scratch-off map and guide for the West Highland Way.</p>
-      </div>
-      <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</span>
-      <div class="peek" style="--tint:#e7efe1"><img class="shot" src="assets/apps/whw-card.webp" alt="West Highland Way Explorer screenshot" width="600" height="800" loading="lazy"></div>
-    </a>
-  </div>
-
-  <h2 class="group">Award winners</h2>
-  <div class="winners">
-    <article class="winner gold" id="cookedthis">
-      <div class="w-medal" aria-hidden="true">
-        <svg viewBox="0 0 120 120" fill="currentColor"><g id="laurel">
-          <path d="M58.5 100.0A42 42 0 0 1 36.5 23.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M0 0Q7.8 -4.8 15.5 0Q7.8 4.8 0 0Z" transform="translate(49.8 98.8) rotate(156)"/>
-          <path d="M0 0Q7.8 -4.8 15.5 0Q7.8 4.8 0 0Z" transform="translate(41.5 95.7) rotate(244)"/>
-          <path d="M0 0Q7.2 -4.5 14.5 0Q7.2 4.5 0 0Z" transform="translate(33.9 90.9) rotate(180)"/>
-          <path d="M0 0Q7.2 -4.5 14.5 0Q7.2 4.5 0 0Z" transform="translate(27.5 84.7) rotate(269)"/>
-          <path d="M0 0Q6.8 -4.2 13.5 0Q6.8 4.2 0 0Z" transform="translate(22.6 77.2) rotate(205)"/>
-          <path d="M0 0Q6.8 -4.2 13.5 0Q6.8 4.2 0 0Z" transform="translate(19.4 68.9) rotate(293)"/>
-          <path d="M0 0Q6.2 -3.9 12.5 0Q6.2 3.9 0 0Z" transform="translate(18.1 60.1) rotate(229)"/>
-          <path d="M0 0Q6.2 -3.9 12.5 0Q6.2 3.9 0 0Z" transform="translate(18.6 51.1) rotate(317)"/>
-          <path d="M0 0Q5.8 -3.6 11.5 0Q5.8 3.6 0 0Z" transform="translate(20.9 42.5) rotate(254)"/>
-          <path d="M0 0Q5.8 -3.6 11.5 0Q5.8 3.6 0 0Z" transform="translate(25.1 34.6) rotate(342)"/>
-          <path d="M0 0Q5.2 -3.3 10.5 0Q5.2 3.3 0 0Z" transform="translate(30.8 27.8) rotate(278)"/>
-          <path d="M0 0Q5.0 -3.2 10.0 0Q5.0 3.2 0 0Z" transform="translate(36.5 23.2) rotate(326)"/>
-        </g><use href="#laurel" transform="translate(120 0) scale(-1 1)"/></svg>
-        <div class="w-rank"><b>1st</b><span>Place</span></div>
-      </div>
-      <div class="w-copy">
-        <p class="w-event"><a href="https://www.revenuecat.com/blog/company/shipaton-2025-winners#onesignal-boost-award" title="See the Shipaton 2025 winners on the RevenueCat blog">RevenueCat Shipaton 2025<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
-        <div class="w-app"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="44" height="44"><h3>CookedThis</h3></div>
-        <p class="w-award">1st place, OneSignal category</p>
-        <p class="w-desc">Fitness tracking for your cooking.</p>
+  <div class="trail-line" aria-hidden="true"><svg viewBox="0 0 1000 44" preserveAspectRatio="none"><path d="M0 34 C 120 34, 160 10, 300 14 S 520 38, 660 26 S 880 6, 1000 10"/></svg></div>
+  <section class="group" id="feelings" aria-labelledby="feelings-title">
+    <div class="group-head"><h2 id="feelings-title">Feelings</h2><p>Apps for noticing how you feel and putting it into words.</p></div>
+    <article class="feature" id="feelingwheel">
+      <div class="feature-copy">
+        <img class="icon f-icon" src="assets/apps/feelingwheel-icon.webp" alt="" width="72" height="72">
+        <h3>Feeling Wheel</h3>
+        <p>Find the exact word for how you feel. Feeling Wheel helps you identify your emotions, understand them better and build emotional intelligence over time.</p>
+        <ul class="facts">
+          <li><span class="stars" aria-hidden="true">★★★★★</span> 4.8 from 204 ratings</li>
+          <li>iPhone, iPad and Android</li>
+          <li>English, French and Spanish</li>
+        </ul>
         <div class="stores">
-          <a class="badge" href="https://apps.apple.com/gb/app/id6749899791" aria-label="CookedThis on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
+          <a class="badge solid" href="https://apps.apple.com/gb/app/feeling-wheel/id6444242001" aria-label="Feeling Wheel on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
+          <a class="badge solid" href="https://play.google.com/store/apps/details?id=com.natasharw.feelingwheel" aria-label="Feeling Wheel on Google Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.8v18.4c0 .4.4.7.8.5l15.5-8.9c.4-.2.4-.8 0-1L4.8 2.3c-.4-.2-.8.1-.8.5z"/></svg>Google Play</a>
         </div>
+        <a class="site-link" href="https://feelingwheel.app/">Visit feelingwheel.app</a>
       </div>
-      <div class="w-shots" aria-hidden="true">
-        <img class="shot" src="assets/apps/cookedthis-shot3.webp" alt="" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/cookedthis-shot0.webp" alt="" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/cookedthis-shot1.webp" alt="" width="600" height="1300" loading="lazy">
-      </div>
+      <div class="shots" aria-hidden="true"><img class="screen" src="assets/apps/screens/feelingwheel-2.webp" alt="" width="600" height="1080"><img class="screen" src="assets/apps/screens/feelingwheel-1.webp" alt="" width="600" height="1080"><img class="screen" src="assets/apps/screens/feelingwheel-3.webp" alt="" width="600" height="1080"></div>
     </article>
-  </div>
-
-  <h2 class="group">More apps</h2>
-  <div class="split">
-  <ul class="apps" id="apps">
-    <li class="app" id="greenhour" data-shots="assets/apps/greenhour-shot3.webp,assets/apps/greenhour-shot4.webp,assets/apps/greenhour-shot5.webp" data-name="Green Hour">
-      <div class="row" tabindex="0" aria-expanded="false">
-        <img class="icon" src="assets/apps/greenhour-icon.webp" alt="" width="48" height="48">
-        <div class="t"><h3>Green Hour</h3><p>See how time outside changes how you feel.</p></div>
-        <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="stores">
-          <a class="badge" href="https://apps.apple.com/gb/app/green-hour-time-outside/id6793054267" aria-label="Green Hour on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
-        </div>
+    <div class="cards">
+    <article class="card" id="greenhour">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/greenhour-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/green-hour/">Green Hour</a></h3></div>
+        <p>See how time outside changes how you feel.</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/green-hour-time-outside/id6793054267" aria-label="Green Hour on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
       </div>
-      <div class="inline">
-        <img class="shot" src="assets/apps/greenhour-shot3.webp" alt="Green Hour screenshot 1" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/greenhour-shot4.webp" alt="Green Hour screenshot 2" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/greenhour-shot5.webp" alt="Green Hour screenshot 3" width="600" height="1300" loading="lazy">
+      <div class="shots" style="--tint:#eef2e6" aria-hidden="true"><img class="screen" src="assets/apps/screens/greenhour-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/greenhour-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/greenhour-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
+    <article class="card" id="iyow">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/iyow-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/in-your-own-words/">In Your Own Words</a></h3></div>
+        <p>Practise saying it out loud before you have to say it for real.</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/in-your-own-words/id6801430533" aria-label="In Your Own Words on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
       </div>
-    </li>
-    <li class="app" id="iyow" data-shots="assets/apps/iyow-shot3.webp,assets/apps/iyow-shot4.webp,assets/apps/iyow-shot5.webp" data-name="In Your Own Words">
-      <div class="row" tabindex="0" aria-expanded="false">
-        <img class="icon" src="assets/apps/iyow-icon.webp" alt="" width="48" height="48">
-        <div class="t"><h3>In Your Own Words</h3><p>Practise saying it out loud before you have to say it for real.</p></div>
-        <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="stores">
-          <a class="badge" href="https://apps.apple.com/gb/app/in-your-own-words/id6801430533" aria-label="In Your Own Words on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
-        </div>
-      </div>
-      <div class="inline">
-        <img class="shot" src="assets/apps/iyow-shot3.webp" alt="In Your Own Words screenshot 1" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/iyow-shot4.webp" alt="In Your Own Words screenshot 2" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/iyow-shot5.webp" alt="In Your Own Words screenshot 3" width="600" height="1300" loading="lazy">
-      </div>
-    </li>
-    <li class="app" id="outlie" data-shots="assets/apps/outlie-shot0.webp,assets/apps/outlie-shot2.webp,assets/apps/outlie-shot1.webp" data-name="Outlie">
-      <div class="row" tabindex="0" aria-expanded="false">
-        <img class="icon" src="assets/apps/outlie-icon.webp" alt="" width="48" height="48">
-        <div class="t"><h3>Outlie</h3><p>Three new map-shape puzzles every day.</p></div>
-        <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="stores">
-          <a class="badge" href="https://apps.apple.com/gb/app/outlie/id6795243929" aria-label="Outlie on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
-        </div>
-      </div>
-      <div class="inline">
-        <img class="shot" src="assets/apps/outlie-shot0.webp" alt="Outlie screenshot 1" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/outlie-shot2.webp" alt="Outlie screenshot 2" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/outlie-shot1.webp" alt="Outlie screenshot 3" width="600" height="1300" loading="lazy">
-      </div>
-    </li>
-    <li class="app" id="repertoire" data-shots="assets/apps/repertoire-shot0.webp,assets/apps/repertoire-shot1.webp,assets/apps/repertoire-shot2.webp" data-name="Repertoire">
-      <div class="row" tabindex="0" aria-expanded="false">
-        <img class="icon" src="assets/apps/repertoire-icon.webp" alt="" width="48" height="48">
-        <div class="t"><h3>Repertoire</h3><p>Keep all your recipes in one place.</p></div>
-        <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="stores">
-          <a class="badge" href="https://apps.apple.com/gb/app/id1590760504" aria-label="Repertoire on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
-        </div>
-      </div>
-      <div class="inline">
-        <img class="shot" src="assets/apps/repertoire-shot0.webp" alt="Repertoire screenshot 1" width="600" height="1067" loading="lazy">
-        <img class="shot" src="assets/apps/repertoire-shot1.webp" alt="Repertoire screenshot 2" width="600" height="1067" loading="lazy">
-        <img class="shot" src="assets/apps/repertoire-shot2.webp" alt="Repertoire screenshot 3" width="600" height="1067" loading="lazy">
-      </div>
-    </li>
-  </ul>
-
-  <div class="preview" id="preview" aria-hidden="true">
-    <div class="pair">
-      <img class="shot" src="assets/apps/greenhour-shot3.webp" alt="" width="600" height="1300">
-      <img class="shot" src="assets/apps/greenhour-shot4.webp" alt="" width="600" height="1300">
-      <img class="shot" src="assets/apps/greenhour-shot5.webp" alt="" width="600" height="1300">
+      <div class="shots" style="--tint:#eef0fb" aria-hidden="true"><img class="screen" src="assets/apps/screens/iyow-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/iyow-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/iyow-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
     </div>
-    <p class="caption">Green Hour</p>
-  </div>
-  </div>
+  </section>
+  <div class="trail-line" aria-hidden="true"><svg viewBox="0 0 1000 44" preserveAspectRatio="none"><path d="M0 34 C 140 30, 220 8, 380 12 S 600 40, 760 28 S 920 8, 1000 10"/></svg></div>
+  <section class="group" id="walking" aria-labelledby="walking-title">
+    <div class="group-head"><h2 id="walking-title">Walking</h2><p>Scratch-off maps and guides for Britain's long-distance trails.</p></div>
+    <div class="cards three">
+    <article class="card" id="swcp">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/swcp-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/south-west-coast-path/">South West Coast Path+</a></h3></div>
+        <p>A scratch-off map and guide for the South West Coast Path.</p>
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.7 from 53 ratings</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/id6747799266" aria-label="South West Coast Path+ on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
+      </div>
+      <div class="shots" style="--tint:#e6edf4" aria-hidden="true"><img class="screen" src="assets/apps/screens/swcp-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/swcp-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/swcp-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
+    <article class="card" id="c2c">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/c2c-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/coast-to-coast/">Coast to Coast Walk UK</a></h3></div>
+        <p>A scratch-off map and guide for the Coast to Coast walk.</p>
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.7 from 10 ratings</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/id6761413697" aria-label="Coast to Coast Walk UK on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
+      </div>
+      <div class="shots" style="--tint:#fbf1d9" aria-hidden="true"><img class="screen" src="assets/apps/screens/c2c-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/c2c-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/c2c-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
+    <article class="card" id="whw">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/whw-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/west-highland-way/">West Highland Way Explorer</a></h3></div>
+        <p>A scratch-off map and guide for the West Highland Way.</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/id6768373231" aria-label="West Highland Way Explorer on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
+      </div>
+      <div class="shots" style="--tint:#e7efe1" aria-hidden="true"><img class="screen" src="assets/apps/screens/whw-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/whw-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/whw-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
+    <article class="card wide" id="trailmatch">
+      <div class="card-copy">
+        <div class="card-top"><span class="icon mark"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 38c6-2 7-10 13-12s9 4 15-1 3-13 3-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5.5"/><circle cx="9" cy="38" r="3.2" fill="currentColor"/><circle cx="40" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></span><h3>TrailMatch</h3><span class="soon-pill">Coming soon</span></div>
+        <p>Turn activities you've already done into progress on trails. Connect Strava or Apple Health and watch it fill in.</p>
+        <div class="stores"><a class="badge" href="mailto:flourishtechcoaching@gmail.com?subject=Tell%20me%20when%20TrailMatch%20launches">Tell me when it launches</a></div>
+      </div>
+      <div class="shots mark-only" style="--tint:#e6edf4" aria-hidden="true"><span class="icon mark"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 38c6-2 7-10 13-12s9 4 15-1 3-13 3-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5.5"/><circle cx="9" cy="38" r="3.2" fill="currentColor"/><circle cx="40" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></span></div>
+    </article>
+    </div>
+  </section>
+  <div class="trail-line" aria-hidden="true"><svg viewBox="0 0 1000 44" preserveAspectRatio="none"><path d="M0 34 C 120 34, 160 10, 300 14 S 520 38, 660 26 S 880 6, 1000 10"/></svg></div>
+  <section class="group" id="cooking" aria-labelledby="cooking-title">
+    <div class="group-head"><h2 id="cooking-title">Cooking</h2><p>For keeping track of what you cook and the recipes you love.</p></div>
+    <div class="cards">
+    <article class="card" id="cookedthis">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/cookedthis/">CookedThis</a></h3></div>
+        <a class="award" href="https://www.revenuecat.com/blog/company/shipaton-2025-winners#onesignal-boost-award"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 1h2l1 4 1-4h2l-1.6 5.2A4.5 4.5 0 1 1 6.6 6.2z" fill="#c9952a"/><circle cx="8" cy="10.5" r="3" fill="#f3d27a"/></svg>1st place, Shipaton 2025</a>
+        <p>Fitness tracking for your cooking.</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/id6749899791" aria-label="CookedThis on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
+      </div>
+      <div class="shots" style="--tint:#e4f3e8" aria-hidden="true"><img class="screen" src="assets/apps/screens/cookedthis-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/cookedthis-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/cookedthis-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
+    <article class="card" id="repertoire">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/repertoire-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/repertoire/">Repertoire</a></h3></div>
+        <p>Keep all your recipes in one place.</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/id1590760504" aria-label="Repertoire on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
+      </div>
+      <div class="shots" style="--tint:#e3f1ef" aria-hidden="true"><img class="screen" src="assets/apps/screens/repertoire-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/repertoire-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/repertoire-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
+    </div>
+  </section>
+  <div class="trail-line" aria-hidden="true"><svg viewBox="0 0 1000 44" preserveAspectRatio="none"><path d="M0 34 C 140 30, 220 8, 380 12 S 600 40, 760 28 S 920 8, 1000 10"/></svg></div>
+  <section class="group" id="play" aria-labelledby="play-title">
+    <div class="group-head"><h2 id="play-title">Play</h2><p>A short daily puzzle for people who like maps.</p></div>
+    <div class="cards">
+    <article class="card wide" id="outlie">
+      <div class="card-copy">
+        <div class="card-top"><img class="icon" src="assets/apps/outlie-icon.webp" alt="" width="48" height="48"><h3><a class="go" href="apps/outlie/">Outlie</a></h3></div>
+        <p>Three new map-shape puzzles every day.</p>
+        <div class="stores"><a class="badge" href="https://apps.apple.com/gb/app/outlie/id6795243929" aria-label="Outlie on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a></div>
+      </div>
+      <div class="shots" style="--tint:#fdeee8" aria-hidden="true"><img class="screen" src="assets/apps/screens/outlie-2.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/outlie-1.webp" alt="" width="600" height="1080" loading="lazy"><img class="screen" src="assets/apps/screens/outlie-3.webp" alt="" width="600" height="1080" loading="lazy"></div>
+    </article>
+    </div>
+  </section>
 
-  <footer>
-    <h2>Privacy policies and support</h2>
-    <ul>
-      <li>Feeling Wheel: <a href="./legal/feelingwheel-privacy.html">privacy</a> · <a href="./legal/feelingwheel-support.html">support</a> · <a href="./legal/feelingwheel-terms.html">terms</a></li>
-      <li>South West Coast Path+: <a href="./legal/swcp-privacy.html">privacy</a> · <a href="./legal/swcp-support.html">support</a></li>
-      <li>Coast to Coast Walk UK: <a href="./legal/coasttocoast-privacy.html">privacy</a> · <a href="./legal/coasttocoast-support.html">support</a></li>
-      <li>West Highland Way Explorer: <a href="./legal/whw-privacy.html">privacy</a> · <a href="./legal/whw-support.html">support</a></li>
-      <li>Green Hour: <a href="./legal/greenhour-privacy.html">privacy</a> · <a href="./legal/greenhour-support.html">support</a></li>
-      <li>In Your Own Words: <a href="./legal/in-your-own-words-privacy.html">privacy</a> · <a href="./legal/in-your-own-words-support.html">support</a></li>
-      <li>Outlie: <a href="./legal/outlie-privacy.html">privacy</a> · <a href="./legal/outlie-support.html">support</a></li>
-      <li>CookedThis: <a href="./legal/cookedthis-privacy.html">privacy</a> · <a href="./legal/cookedthis-support.html">support</a> · <a href="./legal/cookedthis-terms.html">terms</a></li>
-      <li>Repertoire: <a href="./legal/repertoire-privacy.html">privacy</a> · <a href="./legal/repertoire-support.html">support</a></li>
-      <li>TrailMatch: <a href="./legal/trailmatch-privacy.html">privacy</a> · <a href="./legal/trailmatch-terms.html">terms</a></li>
-    </ul>
+  <footer class="site">
+    <span>© 2026 Natasha Wilson</span>
+    <nav aria-label="More links">
+      <a href="legal/">Privacy, terms and support</a>
+      <a href="mailto:flourishtechcoaching@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/natasha-r-wilson/">LinkedIn</a>
+      <a href="https://github.com/natasharw">GitHub</a>
+    </nav>
   </footer>
 
 </div>
 
 <script>
-  // Mouse users get the side panel on hover. Touch screens and narrow windows open screenshots under the row instead.
-  const panelMode = matchMedia('(hover: hover) and (min-width: 861px)');
-  const preview = document.getElementById('preview');
-  const apps = [...document.querySelectorAll('.app')];
-  let current = apps[0];
-  current.classList.add('on');
-
-  function show(app) {
-    if (app === current) return;
-    current.classList.remove('on');
-    current = app;
-    app.classList.add('on');
-    const [a, b, c] = app.dataset.shots.split(',');
-    preview.innerHTML = `<div class="pair fade"><img class="shot" src="${a}" alt=""><img class="shot" src="${b}" alt=""><img class="shot" src="${c}" alt=""></div><p class="caption">${app.dataset.name}</p>`;
-  }
-
-  function toggle(app) {
-    const open = app.classList.toggle('open');
-    app.querySelector('.row').setAttribute('aria-expanded', open);
-  }
-
-  // Icon row: after the scroll, briefly highlight the app, and for list rows show its screenshots
+  // After jumping to an app from the icon row, briefly ring its card so it's easy to spot
   document.querySelectorAll('.icon-row a').forEach((link) => {
     link.addEventListener('click', () => {
       const target = document.getElementById(link.hash.slice(1));
       if (!target) return;
-      if (target.classList.contains('app')) {
-        if (panelMode.matches) show(target);
-        else if (!target.classList.contains('open')) toggle(target);
-      }
       target.classList.remove('flash');
       void target.offsetWidth;
       target.classList.add('flash');
     });
   });
-
-  apps.forEach((app) => {
-    const row = app.querySelector('.row');
-    row.addEventListener('mouseenter', () => { if (panelMode.matches) show(app); });
-    row.addEventListener('focus', () => { if (panelMode.matches) show(app); });
-    row.addEventListener('click', (e) => {
-      if (e.target.closest('a')) return;
-      panelMode.matches ? show(app) : toggle(app);
-    });
-    row.addEventListener('keydown', (e) => {
-      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a') && !panelMode.matches) { e.preventDefault(); toggle(app); }
-    });
-  });
-
-  // On phones, open the first app so it's clear the rows expand
-  if (!panelMode.matches) toggle(apps[0]);
-
-  // Fetch the panel screenshots once the page is idle so hovering feels instant
-  if (panelMode.matches) {
-    (window.requestIdleCallback || setTimeout)(() => {
-      apps.forEach((app) => app.dataset.shots.split(',').forEach((src) => { new Image().src = src; }));
-    });
-  }
 </script>
 </body>
 </html>
