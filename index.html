@@ -61,30 +61,30 @@
   .icon { width: 48px; height: 48px; border-radius: 22%; box-shadow: 0 1px 3px rgba(0,0,0,.14); flex-shrink: 0; }
   .t { flex: 1; min-width: 0; }
   .t h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+  /* Awards sit on the title line so winning rows stay the same height as the rest */
+  .name { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 8px; }
   .award {
     position: relative; overflow: hidden;
-    display: inline-flex; align-items: center; gap: 6px;
-    margin: 4px 0 5px; padding: 3px 11px 3px 8px; border-radius: 999px;
-    background: linear-gradient(135deg, #fff1bf 0%, #f7d46a 45%, #e8b23a 100%);
-    border: 1px solid #ddb04a; color: #4d3300;
-    font-size: .74rem; font-weight: 700; letter-spacing: .01em;
-    box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 3px 10px -4px rgba(176,120,0,.55);
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 8px 2px 6px; border-radius: 999px;
+    background: linear-gradient(135deg, #fff6d6 0%, #fbe39a 100%);
+    border: 1px solid #ecc865; color: #5c3d00;
+    font-size: .7rem; font-weight: 600; line-height: 1.4; max-width: 100%;
   }
-  .awards { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 5px; }
-  .awards .award { margin: 0; }
-  .award.silver {
-    background: linear-gradient(135deg, #fbfbfc 0%, #dcdfe4 45%, #b9bec7 100%);
-    border-color: #b3b8c1; color: #33373d;
-    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 3px 10px -4px rgba(90,98,110,.5);
+  .award.silver { background: linear-gradient(135deg, #fbfbfc 0%, #e3e6ea 100%); border-color: #c4c9d0; color: #3a3e45; }
+  .award.silver svg { color: #6a707a; }
+  .award.bronze { background: linear-gradient(135deg, #fdeee0 0%, #f0c8a4 100%); border-color: #d9a273; color: #55300f; }
+  .award.bronze svg { color: #8a4b1c; }
+  .award svg { width: 12px; height: 12px; flex-shrink: 0; color: #9a6a00; }
+  /* Small medal on the icon, so winners stand out when scanning the list */
+  .medal { position: relative; flex-shrink: 0; }
+  .medal::after {
+    content: ""; position: absolute; right: -4px; bottom: -4px; width: 18px; height: 18px; border-radius: 50%;
+    border: 2px solid var(--page); box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    background: radial-gradient(circle at 35% 30%, #fff3c4 0 18%, #f2c443 45%, #c98f12 100%);
   }
-  .award.silver svg { color: #555b64; }
-  .award.bronze {
-    background: linear-gradient(135deg, #fbe0c8 0%, #e3a574 45%, #c27a45 100%);
-    border-color: #c0844f; color: #4a2508;
-    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 3px 10px -4px rgba(150,80,20,.55);
-  }
-  .award.bronze svg { color: #6e3a12; }
-  .award svg { width: 14px; height: 14px; flex-shrink: 0; color: #7a4f00; }
+  .medal.silver::after { background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #d3d7dd 45%, #9aa1ab 100%); }
+  .medal.bronze::after { background: radial-gradient(circle at 35% 30%, #fde3cc 0 18%, #dd9a63 45%, #a8612c 100%); }
   /* A light sweep across the badge on load and on hover */
   .award::after {
     content: ""; position: absolute; inset: 0;
@@ -411,8 +411,8 @@
     </li>
     <li class="app" id="cookedthis" data-shots="assets/apps/cookedthis-shot0.webp,assets/apps/cookedthis-shot3.webp,assets/apps/cookedthis-shot1.webp" data-name="CookedThis">
       <div class="row" tabindex="0" aria-expanded="false">
-        <img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="48" height="48">
-        <div class="t"><h3>CookedThis</h3><span class="awards"><span class="award gold" title="RevenueCat Shipaton 2025, 1st place in the OneSignal category"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 9V7zm10 0v2c0 .3 0 .5-.1.8A2 2 0 0 0 18 8V7h-1zM6 20h12v1H6z"/></svg><span>Shipaton 2025 · 1st place, OneSignal category</span></span></span><p>Fitness tracking for your cooking.</p></div>
+        <span class="medal gold"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="48" height="48"></span>
+        <div class="t"><div class="name"><h3>CookedThis</h3><span class="award gold" title="RevenueCat Shipaton 2025, 1st place in the OneSignal category"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 9V7zm10 0v2c0 .3 0 .5-.1.8A2 2 0 0 0 18 8V7h-1zM6 20h12v1H6z"/></svg><span>Shipaton 2025 · OneSignal 1st</span></span></div><p>Fitness tracking for your cooking.</p></div>
         <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="stores">
           <a class="badge" href="https://apps.apple.com/gb/app/id6749899791" aria-label="CookedThis on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
