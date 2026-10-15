@@ -42,8 +42,9 @@ the old paths now redirect. Apple still has the old URLs on file.
 
 ## How the pages fit together
 
-- `index.html` is the homepage. Apps are grouped by theme (Feelings,
-  Walking, Cooking, Play), with a dotted trail line between groups.
+- `index.html` is the homepage. Sections are Featured (Feeling Wheel),
+  Trail apps, Award winners and More apps, with a dotted trail
+  line between them.
 - `apps/<app>/index.html` is a short page per app: screenshots, about,
   what it does, and its support and privacy links. Feeling Wheel has no page
   here because its card links to <https://feelingwheel.app/>.
