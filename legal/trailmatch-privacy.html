@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrailMatch - Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 5rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e6e6e6; background: #121212; }
+    a { color: #6ea8fe; }
+    th { background: #1e1e1e !important; }
+    td, th { border-color: #333 !important; }
+    code { background: #1e1e1e !important; }
+  }
+  h1 { font-size: 1.9rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.2rem; margin-top: 2.25rem; }
+  h3 { font-size: 1rem; margin-top: 1.5rem; }
+  .updated { color: #666; font-size: .9rem; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .93rem; }
+  th, td { border: 1px solid #ddd; padding: .55rem .7rem; text-align: left; vertical-align: top; }
+  th { background: #f6f6f6; }
+  code { background: #f2f2f2; padding: .1rem .3rem; border-radius: 3px; font-size: .9em; }
+  .back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
+</style>
+</head>
+<body>
+
+<a class="back" href="../">← All apps</a>
+
+<h1>TrailMatch - Privacy Policy</h1>
+<p class="updated">Last updated: 15 October 2026</p>
+
+<p>TrailMatch shows how much of the UK's long-distance trails you have already walked, run or ridden, using the activities you have recorded on Strava. This policy explains what data the app handles, why, who else sees it, and how you can delete it.</p>
+
+<p>In short: TrailMatch needs your email address and your Strava activity routes to work. Your routes are only ever shown to you. Your data is never sold, never used for advertising, and never used to train AI models. You can disconnect Strava or delete your account from inside the app at any time, and the data goes straight away.</p>
+
+<h2>Who is responsible</h2>
+<p>TrailMatch is made by Natasha Wilson, an independent app developer trading as a sole trader in the United Kingdom. For the purposes of the UK GDPR and EU GDPR, Natasha Wilson is the data controller.</p>
+<p>Contact: <a href="mailto:flourishtechcoaching@gmail.com">flourishtechcoaching@gmail.com</a></p>
+
+<h2>What I collect and why</h2>
+
+<h3>Your account</h3>
+<ul>
+  <li><strong>Email address.</strong> This is how you sign in, and the only way I identify you. I use it to send a verification link when you sign up and to send account emails such as a password reset. I do not send marketing email.</li>
+  <li><strong>Password.</strong> Stored only as a one-way hash (argon2id), so nobody, including me, can read it.</li>
+  <li><strong>Sign-in sessions.</strong> Short-lived sign-in tokens kept in your device's Keychain, with a hashed copy on the server so they can be revoked when you sign out or delete your account.</li>
+</ul>
+
+<h3>Your Strava activities</h3>
+<p>When you connect Strava, you choose to give TrailMatch read access to your activities (Strava's <code>activity:read_all</code> permission, which includes activities you have marked private). For each activity, TrailMatch keeps:</p>
+<ul>
+  <li>The activity name, sport type, start time and distance</li>
+  <li>A simplified version of the route (a reduced set of map points, not the full GPS recording)</li>
+  <li>Which stretches of which trails the route matched, so the app can show your progress</li>
+</ul>
+<p>The full GPS stream from Strava is processed to work out the match and is never stored. TrailMatch never requests heart rate, power or any other health or fitness readings from Strava. It also stores your Strava athlete ID and the access tokens Strava issues, which are encrypted so that a copy of the database alone cannot be used to read them.</p>
+<p>Activity routes reveal where you go, so they are treated as sensitive. They are only ever shown to you. There is no social feed, no public profile and no way for another user to see your activities or progress.</p>
+
+<h3>Trails you mark by hand</h3>
+<p>If you mark a stretch of trail as done yourself on the map, TrailMatch stores which stretch you marked.</p>
+
+<h3>Notifications</h3>
+<p>If you allow notifications, TrailMatch stores your device's push token so it can tell you when a new activity has moved your progress. You can turn notifications off at any time in the iOS Settings app.</p>
+
+<h3>Purchases</h3>
+<p>TrailMatch Pro is sold through the App Store. Payment is handled by Apple, and I never see your card details. To know whether you have Pro, TrailMatch records the product you bought, its status, its expiry date and a transaction ID.</p>
+
+<h2>Legal basis</h2>
+<ul>
+  <li><strong>Contract:</strong> to provide the app you signed up for, including matching your activities to trails and providing Pro if you buy it.</li>
+  <li><strong>Consent:</strong> for connecting Strava and for notifications. You can withdraw either at any time from the app or from iOS Settings.</li>
+  <li><strong>Legitimate interests:</strong> to keep the service secure and working, for example security logs and error reports.</li>
+</ul>
+
+<h2>Who else sees your data</h2>
+<p>TrailMatch uses a small number of services to run. None of them receive your data for advertising, and I do not sell or share your data with anyone else.</p>
+<table>
+  <tr><th>Service</th><th>What it is for</th><th>What it sees</th></tr>
+  <tr>
+    <td>Strava</td>
+    <td>The source of your activities</td>
+    <td>That you have connected TrailMatch to your Strava account, and TrailMatch's requests for your activities</td>
+  </tr>
+  <tr>
+    <td>Apple</td>
+    <td>App Store payments and push notifications</td>
+    <td>Your purchase, handled under your Apple ID, and the content of any notification sent to your device</td>
+  </tr>
+  <tr>
+    <td>RevenueCat</td>
+    <td>Managing subscriptions and purchases</td>
+    <td>A random account ID (not your email), your purchase history, country of purchase and basic device information</td>
+  </tr>
+  <tr>
+    <td>Render</td>
+    <td>Hosting the TrailMatch server and database</td>
+    <td>Everything stored on the server, as described above, held in the EU (Frankfurt, Germany)</td>
+  </tr>
+  <tr>
+    <td>Google (Gmail)</td>
+    <td>Sending account emails</td>
+    <td>Your email address and the content of the email, such as a verification link</td>
+  </tr>
+  <tr>
+    <td>Sentry</td>
+    <td>Error reports so problems can be fixed</td>
+    <td>Technical details of an error, which may include a random account ID. Error reports do not include your email address, routes or locations</td>
+  </tr>
+</table>
+<p>Each of these services handles data under its own privacy policy. Some, such as Sentry, RevenueCat and Google, may process data outside the UK and EU. Where they do, they rely on the legal safeguards for international transfers, such as standard contractual clauses.</p>
+
+<h2>Disconnecting Strava and deleting your account</h2>
+<ul>
+  <li><strong>Disconnect Strava</strong> from Settings in the app. TrailMatch deletes every activity, route and trail match that came from Strava, and deletes your Strava tokens. Your account and anything you marked by hand stay.</li>
+  <li><strong>Revoke access on Strava's side</strong> (in Strava's settings, under My Apps). Strava tells TrailMatch, which then deletes your Strava data in the same way.</li>
+  <li><strong>Delete your account</strong> from Settings in the app. You are signed out everywhere straight away, TrailMatch asks Strava to cancel its access, and your account and all of its data are permanently deleted, including your email address, activities, routes, progress and push tokens.</li>
+</ul>
+<p>Deletion is immediate in the working database. Encrypted backups taken before you deleted may still contain your data until they expire on the hosting provider's fixed backup schedule, and they are never used to bring deleted data back.</p>
+<p>A security log of account events (for example "signed in" or "account deleted") is kept after deletion. It records a random account ID and the type of event, never your email address, routes or locations.</p>
+
+<h2>How long data is kept</h2>
+<p>Your account data and activity routes are kept while you have an account, so your progress stays up to date when trails or matching improve. They are deleted when you disconnect Strava or delete your account, as described above. Data held by Apple, RevenueCat and the other services above is kept according to their own policies.</p>
+
+<h2>Security</h2>
+<p>All connections use HTTPS. Passwords are hashed, Strava tokens are encrypted, the database is only reachable from the TrailMatch server, and only the account owner can read their own data. No system is perfectly secure, but these measures are designed to keep your data private.</p>
+
+<h2>Your rights</h2>
+<p>If you are in the UK or EEA, you have the right to access, correct or erase your personal data, to object to or restrict how it is used, and to receive a copy of it. You can delete your data yourself from the app at any time. For a copy of your data, or anything else, email <a href="mailto:flourishtechcoaching@gmail.com">flourishtechcoaching@gmail.com</a> and I will reply within one month.</p>
+<p>You also have the right to complain to your local data protection authority. In the UK that is the <a href="https://ico.org.uk" target="_blank" rel="noopener">Information Commissioner's Office</a>.</p>
+
+<h2>Children</h2>
+<p>TrailMatch is not intended for children under 13, and I do not knowingly collect data from them. If you believe a child has signed up, please get in touch and I will delete the account.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes in a way that matters, I will update the date at the top of this page and, for significant changes, tell you in the app.</p>
+
+</body>
+</html>
