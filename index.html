@@ -61,38 +61,6 @@
   .icon { width: 48px; height: 48px; border-radius: 22%; box-shadow: 0 1px 3px rgba(0,0,0,.14); flex-shrink: 0; }
   .t { flex: 1; min-width: 0; }
   .t h3 { font-size: 1rem; font-weight: 600; margin: 0; }
-  /* Awards sit on the title line so winning rows stay the same height as the rest */
-  .name { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 8px; }
-  .award {
-    position: relative; overflow: hidden;
-    display: inline-flex; align-items: center; gap: 4px;
-    padding: 2px 8px 2px 6px; border-radius: 999px;
-    background: linear-gradient(135deg, #fff6d6 0%, #fbe39a 100%);
-    border: 1px solid #ecc865; color: #5c3d00;
-    font-size: .7rem; font-weight: 600; line-height: 1.4; max-width: 100%;
-  }
-  .award.silver { background: linear-gradient(135deg, #fbfbfc 0%, #e3e6ea 100%); border-color: #c4c9d0; color: #3a3e45; }
-  .award.silver svg { color: #6a707a; }
-  .award.bronze { background: linear-gradient(135deg, #fdeee0 0%, #f0c8a4 100%); border-color: #d9a273; color: #55300f; }
-  .award.bronze svg { color: #8a4b1c; }
-  .award svg { width: 12px; height: 12px; flex-shrink: 0; color: #9a6a00; }
-  /* Small medal on the icon, so winners stand out when scanning the list */
-  .medal { position: relative; flex-shrink: 0; }
-  .medal::after {
-    content: ""; position: absolute; right: -4px; bottom: -4px; width: 18px; height: 18px; border-radius: 50%;
-    border: 2px solid var(--page); box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    background: radial-gradient(circle at 35% 30%, #fff3c4 0 18%, #f2c443 45%, #c98f12 100%);
-  }
-  .medal.silver::after { background: radial-gradient(circle at 35% 30%, #ffffff 0 18%, #d3d7dd 45%, #9aa1ab 100%); }
-  .medal.bronze::after { background: radial-gradient(circle at 35% 30%, #fde3cc 0 18%, #dd9a63 45%, #a8612c 100%); }
-  /* A light sweep across the badge on load and on hover */
-  .award::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.75) 50%, transparent 70%);
-    transform: translateX(-120%); animation: shine 1.4s .6s ease-out both;
-  }
-  .row:hover .award::after { animation: shine 1s ease-out; }
-  @keyframes shine { to { transform: translateX(120%); } }
   .t p { margin: 0; color: var(--muted); font-size: .92rem; }
   .chev { display: none; }
 
@@ -233,6 +201,77 @@
   }
   .trail:hover .peek .shot { transform: translateY(-4px); }
 
+  /* Award winners: dark cards so they read as awards, one metal per placing */
+  .winners { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .winner {
+    --m1: #fbe7a1; --m2: #e3b44c; --m3: #a8741a; --glow: rgba(227,180,76,.26);
+    position: relative; overflow: hidden; scroll-margin-top: 24px;
+    display: flex; flex-direction: column; padding: 28px 28px 0; border-radius: 24px;
+    color: #f5f2ec;
+    background: radial-gradient(90% 70% at 0% 0%, var(--glow), transparent 60%), linear-gradient(155deg, #23222a 0%, #151419 100%);
+    border: 1px solid color-mix(in srgb, var(--m2) 30%, transparent);
+    box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 24px 48px -24px rgba(20,18,10,.55);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+    animation: rise .6s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .winner.silver { --m1: #ffffff; --m2: #c9ced6; --m3: #7f8692; --glow: rgba(201,206,214,.2); }
+  .winner.bronze { --m1: #f9d6b4; --m2: #d38b4f; --m3: #8e4f22; --glow: rgba(211,139,79,.24); }
+  .winner:hover { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 32px 60px -24px rgba(20,18,10,.6); }
+  /* A single light sweep across the card when it first appears */
+  .winner::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.09) 50%, transparent 65%);
+    transform: translateX(-100%); animation: sweep 1.6s .5s ease-out both;
+  }
+  @keyframes sweep { to { transform: translateX(100%); } }
+
+  .w-medal { position: relative; width: 104px; height: 104px; display: grid; place-items: center; flex-shrink: 0; color: var(--m2); }
+  .w-medal svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); }
+  .w-medal::before { content: ""; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, var(--glow), transparent 70%); }
+  .w-rank { position: relative; text-align: center; line-height: 1; }
+  .w-rank b {
+    display: block; font-size: 1.55rem; font-weight: 700; letter-spacing: -.03em;
+    background: linear-gradient(180deg, var(--m1) 10%, var(--m2) 55%, var(--m3) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .w-rank span { display: block; margin-top: 3px; font-size: .58rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--m2); }
+
+  .w-copy { margin-top: 18px; }
+  .w-event { margin: 0 0 12px; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--m2); }
+  .w-event a { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+  .w-event a:hover { color: var(--m1); border-color: currentColor; }
+  .w-event a:focus-visible { outline: 2px solid var(--m2); outline-offset: 3px; border-radius: 3px; }
+  .w-event svg { width: 10px; height: 10px; }
+  .w-app { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .w-app .icon { width: 44px; height: 44px; box-shadow: 0 0 0 1px rgba(255,255,255,.1), 0 4px 12px rgba(0,0,0,.4); }
+  .w-app h3 { margin: 0; font-size: 1.35rem; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }
+  .w-award { margin: 0 0 4px; font-size: .95rem; font-weight: 600; color: #ffffff; }
+  .w-desc { margin: 0 0 18px; font-size: .92rem; color: rgba(245,242,236,.62); }
+  .winner .stores { justify-content: flex-start; }
+  .winner .badge { background: #ffffff; color: #151419; border-color: #ffffff; }
+  .winner .badge:hover { background: var(--m1); border-color: var(--m1); color: #151419; }
+
+  .w-shots { position: relative; height: 200px; margin: 22px -28px 0; overflow: hidden; }
+  .w-shots .shot { position: absolute; top: 24px; left: 50%; width: 128px; border-radius: 14px; box-shadow: 0 10px 30px -8px rgba(0,0,0,.6); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  .w-shots .shot:nth-child(1) { transform: translate(-128%, 26px) rotate(-8deg); }
+  .w-shots .shot:nth-child(2) { transform: translate(-50%, 0); z-index: 2; }
+  .w-shots .shot:nth-child(3) { transform: translate(28%, 26px) rotate(8deg); }
+  .winner:hover .w-shots .shot:nth-child(1) { transform: translate(-136%, 22px) rotate(-10deg); }
+  .winner:hover .w-shots .shot:nth-child(2) { transform: translate(-50%, -6px); }
+  .winner:hover .w-shots .shot:nth-child(3) { transform: translate(36%, 22px) rotate(10deg); }
+
+  /* With only one winner the card runs the full width: medal, copy, then screenshots */
+  @media (min-width: 861px) {
+    .winner:only-child { display: grid; grid-template-columns: 140px minmax(0, 1fr) 400px; gap: 36px; align-items: center; padding: 0 0 0 44px; }
+    .winner:only-child .w-medal { width: 140px; height: 140px; }
+    .winner:only-child .w-rank b { font-size: 2.1rem; }
+    .winner:only-child .w-rank span { font-size: .66rem; }
+    .winner:only-child .w-copy { margin: 0; padding: 36px 0; }
+    .winner:only-child .w-app h3 { font-size: 1.6rem; }
+    .winner:only-child .w-shots { align-self: end; height: 290px; margin: 0; }
+    .winner:only-child .w-shots .shot { width: 150px; top: 30px; }
+  }
+
   @media (max-width: 860px) {
     .featured { grid-template-columns: minmax(0, 1fr); padding: 28px 22px 0; gap: 8px; }
     .featured h2 { font-size: 1.6rem; }
@@ -293,10 +332,10 @@
       <a href="#swcp" aria-label="South West Coast Path+" title="South West Coast Path+"><img class="icon" src="assets/apps/swcp-icon.webp" alt="" width="52" height="52"></a>
       <a href="#c2c" aria-label="Coast to Coast Walk UK" title="Coast to Coast Walk UK"><img class="icon" src="assets/apps/c2c-icon.webp" alt="" width="52" height="52"></a>
       <a href="#whw" aria-label="West Highland Way Explorer" title="West Highland Way Explorer"><img class="icon" src="assets/apps/whw-icon.webp" alt="" width="52" height="52"></a>
+      <a href="#cookedthis" aria-label="CookedThis" title="CookedThis"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="52" height="52"></a>
       <a href="#greenhour" aria-label="Green Hour" title="Green Hour"><img class="icon" src="assets/apps/greenhour-icon.webp" alt="" width="52" height="52"></a>
       <a href="#iyow" aria-label="In Your Own Words" title="In Your Own Words"><img class="icon" src="assets/apps/iyow-icon.webp" alt="" width="52" height="52"></a>
       <a href="#outlie" aria-label="Outlie" title="Outlie"><img class="icon" src="assets/apps/outlie-icon.webp" alt="" width="52" height="52"></a>
-      <a href="#cookedthis" aria-label="CookedThis" title="CookedThis"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="52" height="52"></a>
       <a href="#repertoire" aria-label="Repertoire" title="Repertoire"><img class="icon" src="assets/apps/repertoire-icon.webp" alt="" width="52" height="52"></a>
   </nav>
 
@@ -362,6 +401,47 @@
     </a>
   </div>
 
+  <h2 class="group">Award winners</h2>
+  <div class="winners">
+    <article class="winner gold" id="cookedthis">
+      <div class="w-medal" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="currentColor"><g id="laurel">
+          <path d="M49.6 103.7A43 43 0 0 1 45.3 21.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="39.1" cy="105.8" rx="8.5" ry="3.4" transform="rotate(234 39.1 105.8)"/>
+          <ellipse cx="43.2" cy="95.6" rx="8.5" ry="3.4" transform="rotate(170 43.2 95.6)"/>
+          <ellipse cx="24.5" cy="95.2" rx="8.1" ry="3.2" transform="rotate(255 24.5 95.2)"/>
+          <ellipse cx="32.1" cy="87.2" rx="8.1" ry="3.2" transform="rotate(191 32.1 87.2)"/>
+          <ellipse cx="14.9" cy="80.0" rx="7.7" ry="3.1" transform="rotate(277 14.9 80.0)"/>
+          <ellipse cx="24.8" cy="75.3" rx="7.7" ry="3.1" transform="rotate(213 24.8 75.3)"/>
+          <ellipse cx="11.4" cy="62.4" rx="7.2" ry="2.9" transform="rotate(298 11.4 62.4)"/>
+          <ellipse cx="22.4" cy="61.6" rx="7.2" ry="2.9" transform="rotate(234 22.4 61.6)"/>
+          <ellipse cx="14.6" cy="44.7" rx="6.8" ry="2.7" transform="rotate(319 14.6 44.7)"/>
+          <ellipse cx="25.1" cy="48.0" rx="6.8" ry="2.7" transform="rotate(255 25.1 48.0)"/>
+          <ellipse cx="24.0" cy="29.4" rx="6.4" ry="2.5" transform="rotate(341 24.0 29.4)"/>
+          <ellipse cx="32.6" cy="36.2" rx="6.4" ry="2.5" transform="rotate(277 32.6 36.2)"/>
+          <ellipse cx="38.3" cy="18.5" rx="5.9" ry="2.4" transform="rotate(362 38.3 18.5)"/>
+          <ellipse cx="43.8" cy="28.0" rx="5.9" ry="2.4" transform="rotate(298 43.8 28.0)"/>
+        </g><use href="#laurel" transform="translate(120 0) scale(-1 1)"/></svg>
+        <div class="w-rank"><b>1st</b><span>Place</span></div>
+      </div>
+      <div class="w-copy">
+        <p class="w-event"><a href="https://www.revenuecat.com/blog/company/shipaton-2025-winners#onesignal-boost-award" title="See the Shipaton 2025 winners on the RevenueCat blog">RevenueCat Shipaton 2025<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+        <div class="w-app"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="44" height="44"><h3>CookedThis</h3></div>
+        <p class="w-award">1st place, OneSignal category</p>
+        <p class="w-desc">Fitness tracking for your cooking.</p>
+        <div class="stores">
+          <a class="badge" href="https://apps.apple.com/gb/app/id6749899791" aria-label="CookedThis on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
+        </div>
+      </div>
+      <div class="w-shots" aria-hidden="true">
+        <img class="shot" src="assets/apps/cookedthis-shot3.webp" alt="" width="600" height="1300" loading="lazy">
+        <img class="shot" src="assets/apps/cookedthis-shot0.webp" alt="" width="600" height="1300" loading="lazy">
+        <img class="shot" src="assets/apps/cookedthis-shot1.webp" alt="" width="600" height="1300" loading="lazy">
+      </div>
+    </article>
+  </div>
+
+  <h2 class="group">More apps</h2>
   <div class="split">
   <ul class="apps" id="apps">
     <li class="app" id="greenhour" data-shots="assets/apps/greenhour-shot3.webp,assets/apps/greenhour-shot4.webp,assets/apps/greenhour-shot5.webp" data-name="Green Hour">
@@ -407,21 +487,6 @@
         <img class="shot" src="assets/apps/outlie-shot0.webp" alt="Outlie screenshot 1" width="600" height="1300" loading="lazy">
         <img class="shot" src="assets/apps/outlie-shot2.webp" alt="Outlie screenshot 2" width="600" height="1300" loading="lazy">
         <img class="shot" src="assets/apps/outlie-shot1.webp" alt="Outlie screenshot 3" width="600" height="1300" loading="lazy">
-      </div>
-    </li>
-    <li class="app" id="cookedthis" data-shots="assets/apps/cookedthis-shot0.webp,assets/apps/cookedthis-shot3.webp,assets/apps/cookedthis-shot1.webp" data-name="CookedThis">
-      <div class="row" tabindex="0" aria-expanded="false">
-        <span class="medal gold"><img class="icon" src="assets/apps/cookedthis-icon.webp" alt="" width="48" height="48"></span>
-        <div class="t"><div class="name"><h3>CookedThis</h3><span class="award gold" title="RevenueCat Shipaton 2025, 1st place in the OneSignal category"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 9V7zm10 0v2c0 .3 0 .5-.1.8A2 2 0 0 0 18 8V7h-1zM6 20h12v1H6z"/></svg><span>Shipaton 2025 · OneSignal 1st</span></span></div><p>Fitness tracking for your cooking.</p></div>
-        <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="stores">
-          <a class="badge" href="https://apps.apple.com/gb/app/id6749899791" aria-label="CookedThis on the App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</a>
-        </div>
-      </div>
-      <div class="inline">
-        <img class="shot" src="assets/apps/cookedthis-shot0.webp" alt="CookedThis screenshot 1" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/cookedthis-shot3.webp" alt="CookedThis screenshot 2" width="600" height="1300" loading="lazy">
-        <img class="shot" src="assets/apps/cookedthis-shot1.webp" alt="CookedThis screenshot 3" width="600" height="1300" loading="lazy">
       </div>
     </li>
     <li class="app" id="repertoire" data-shots="assets/apps/repertoire-shot0.webp,assets/apps/repertoire-shot1.webp,assets/apps/repertoire-shot2.webp" data-name="Repertoire">
