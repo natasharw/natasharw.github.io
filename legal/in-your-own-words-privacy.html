@@ -121,12 +121,19 @@
 
 <h2>Buying on the web</h2>
 <p>
-  Some decks can also be bought on the In Your Own Words website. That checkout
-  is run by <strong>Stripe</strong>, which handles your payment details, and
-  RevenueCat, which records the purchase and emails you a link that unlocks it
-  in the app. Both receive the email address you enter at checkout, and it is
-  used to deliver and restore that purchase. Nothing you record in the app is
-  ever linked to it.
+  Some decks can also be bought on the In Your Own Words website. Before
+  checkout, a short quiz asks about the conversation you're preparing for (for
+  example, what kind of interview is coming up). The quiz pages are hosted by
+  RevenueCat, which keeps your answers alongside the purchase. They are used to
+  suggest the right deck and to understand which parts of the quiz people find
+  useful.
+</p>
+<p>
+  The checkout itself is run by <strong>Stripe</strong>, which handles your
+  payment details, and RevenueCat, which records the purchase and emails you a
+  link that unlocks it in the app. Both receive the email address you enter at
+  checkout, and it is used to deliver and restore that purchase. Nothing you
+  record in the app is ever linked to your quiz answers or your email.
 </p>
 <p>
   See
@@ -141,7 +148,8 @@
   <tr><th>Service</th><th>Purpose</th><th>Applies when</th></tr>
   <tr>
     <td>RevenueCat</td>
-    <td>Managing subscriptions and entitlements</td>
+    <td>Managing subscriptions and entitlements, hosting the web quiz and
+        checkout</td>
     <td>Always, if purchases are available</td>
   </tr>
   <tr>
