@@ -75,100 +75,13 @@ footer.site a { color: var(--muted); }
 footer.site a:hover { color: var(--ink); }
 footer.site nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 
-/* ---------- Homepage ---------- */
+/* ---------- Page headers (app and legal pages) ---------- */
 
 .hero { max-width: 48rem; margin-bottom: 40px; }
 .hero .lede, .hero .sub { max-width: 40rem; }
 .hero h1 { font-family: var(--display); font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; margin: 0 0 14px; }
 .lede { font-size: 1.2rem; line-height: 1.5; margin: 0 0 20px; color: #3a3a3f; }
 .sub { color: var(--muted); margin: 0 0 20px; }
-.proof { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .92rem; font-weight: 600; }
-.proof li { display: flex; align-items: center; gap: 7px; }
-.proof li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-.proof a { text-decoration: underline; text-decoration-color: #d8c48c; text-underline-offset: 3px; }
-.links { display: flex; flex-wrap: wrap; gap: 4px 20px; font-weight: 500; }
-.links a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; text-decoration-thickness: 1.5px; transition: text-decoration-color .2s; }
-.links a:hover { text-decoration-color: currentColor; }
-
-.icon-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
-.icon-row a { display: block; border-radius: 22%; }
-.icon-row .icon { width: 48px; height: 48px; }
-.mark { display: grid; place-items: center; color: #fff; background: linear-gradient(145deg, #2f6a8a, #1d3b4f); }
-.mark svg { width: 70%; height: 70%; }
-
-.group { scroll-margin-top: 24px; }
-.group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; }
-.group-head h2 { font-family: var(--display); font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; margin: 0; }
-.group-head p { margin: 0; color: var(--muted); }
-
-.cards { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.cards.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-/* The one card used for every app. A card that spans the whole row lays out side by side. */
-.card {
-  position: relative; display: flex; flex-direction: column; overflow: hidden;
-  border: 1px solid var(--line); border-radius: 22px; background: var(--page);
-  scroll-margin-top: 24px;
-  transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s;
-}
-.card:has(.go):hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-.card-copy { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 22px 22px 20px; }
-.card-top { display: flex; align-items: center; gap: 12px; }
-.card h3 { font-size: 1.08rem; font-weight: 600; line-height: 1.25; margin: 0; }
-.card h3 a { text-decoration: none; }
-/* The name links to the app page and its hit area covers the card. Buttons sit above it. */
-.card .go::after { content: ""; position: absolute; inset: 0; border-radius: 22px; }
-.card .go:focus-visible { outline: none; }
-.card:has(.go:focus-visible) { outline: 2px solid var(--ink); outline-offset: 3px; }
-.card p { margin: 0; color: var(--muted); font-size: .95rem; }
-.card .rating { color: var(--ink); font-size: .88rem; font-weight: 500; }
-.card .stores { margin-top: auto; padding-top: 4px; }
-.soon-pill { font-size: .72rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: #e6edf4; color: #2f5a74; white-space: nowrap; }
-
-.shots {
-  display: flex; justify-content: center; gap: 12px;
-  height: 300px; padding: 28px 12px 0; overflow: hidden; align-items: flex-start;
-  background: var(--tint, var(--soft)); border-top: 1px solid var(--line);
-}
-.shots .screen { width: 200px; flex-shrink: 0; }
-.shots .screen:nth-child(2) { margin-top: -10px; }
-/* Show only as many screens as fit whole, so none get sliced by the card edge.
-   The main screen is the middle one, so it is the last to go. */
-.shots { container-type: inline-size; }
-@container (max-width: 640px) { .shots .screen:nth-child(3) { display: none; } }
-@container (max-width: 420px) { .shots .screen:nth-child(1) { display: none; } }
-.shots.mark-only { align-items: center; padding: 0; }
-.shots.mark-only .mark { width: 96px; height: 96px; }
-
-.card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
-.card.wide .card-copy { padding: 30px; justify-content: center; }
-.card.wide .card-copy p { max-width: 30rem; }
-.card.wide .shots { height: 100%; min-height: 340px; border-top: 0; border-left: 1px solid var(--line); }
-.card.wide .stores { margin-top: 6px; }
-.card.wide .shots.mark-only { min-height: 0; }
-
-/* Feeling Wheel, the one featured app */
-.feature {
-  position: relative; overflow: hidden; margin-bottom: 16px;
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch;
-  border-radius: 26px; border: 1px solid #d9ece8;
-  background: linear-gradient(140deg, #eaf7f4 0%, #f5faf9 55%, #eef3fb 100%);
-  scroll-margin-top: 24px;
-}
-.feature-copy { padding: 40px 0 40px 40px; display: flex; flex-direction: column; gap: 14px; justify-content: center; }
-.feature .f-icon { width: 72px; height: 72px; box-shadow: 0 2px 6px rgba(0,0,0,.12), 0 14px 30px -12px rgba(31,158,148,.6); }
-.feature h3 { font-family: var(--display); font-size: 2rem; font-weight: 700; letter-spacing: -.025em; line-height: 1.1; margin: 0; }
-.feature p { margin: 0; color: var(--muted); font-size: 1.05rem; max-width: 27rem; }
-.feature .facts li { background: rgba(255,255,255,.75); border-color: #d9ece8; }
-.site-link { font-weight: 600; font-size: .92rem; color: var(--accent); text-decoration: underline; text-decoration-color: rgba(43,111,104,.35); text-underline-offset: 3px; }
-.site-link:hover { text-decoration-color: currentColor; }
-.feature .shots { height: auto; background: none; border: 0; align-items: flex-end; padding: 40px 24px 0; }
-.feature .shots .screen { margin-bottom: -1px; }
-.feature .shots .screen:nth-child(2) { margin-top: 0; }
-.feature .shots { padding-top: 48px; }
-
-@keyframes flash { 0%, 100% { box-shadow: 0 0 0 0 rgba(43,111,104,0); } 30% { box-shadow: 0 0 0 4px rgba(43,111,104,.35); } }
-.flash { animation: flash 1.4s ease-out; }
 
 /* ---------- App pages ---------- */
 
@@ -201,17 +114,7 @@ footer.site nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 
 @media (max-width: 860px) {
   .wrap { padding: 36px 16px 32px; }
-  .cards, .cards.three { grid-template-columns: minmax(0, 1fr); }
-  .card.wide { display: flex; }
-  .card.wide .card-copy { padding: 22px; }
-  .card.wide .shots { height: 290px; min-height: 0; border-left: 0; border-top: 1px solid var(--line); }
-  .shots { height: 290px; }
-  .feature { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .feature-copy { padding: 28px 22px 8px; }
-  .feature h3 { font-size: 1.75rem; }
-  .feature .shots { height: 310px; padding: 24px 12px 0; overflow: hidden; align-items: flex-start; }
   .trail-line { margin: 40px 6px 28px; }
-  .shots.mark-only { display: none; }
   .app-head { grid-template-columns: minmax(0, 1fr); }
   .app-head .icon { width: 80px; height: 80px; }
   .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px 20px 0; gap: 14px; align-items: flex-start; }

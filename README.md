@@ -42,18 +42,16 @@ the old paths now redirect. Apple still has the old URLs on file.
 
 ## How the pages fit together
 
-- `index.html` is the homepage. Sections are Featured (Feeling Wheel),
-  Trail apps, Award winners and More apps, with a dotted trail
-  line between them.
+- `index.html` is the homepage, with two tabs in the top bar. Apps lists
+  every app as an App Store style row (icon, name, subtitle, store button)
+  with three screenshots underneath. Contact has the photo, email, links
+  and the legal page. `/#contact` opens the Contact tab and `/#outlie`
+  scrolls to that app. Its styles are in `assets/home.css`.
 - `apps/<app>/index.html` is a short page per app: screenshots, about,
   what it does, and its support and privacy links. Feeling Wheel has no page
-  here because its card links to <https://feelingwheel.app/>.
+  here because its row links to <https://feelingwheel.app/>.
 - `legal/index.html` lists every app's privacy, terms and support pages.
-- `assets/site.css` is shared by all of the above.
-
-There are two card types: the large Feeling Wheel card and the standard
-`.card` used for every other app. A card with the `wide` class spans its row
-and lays out side by side.
+- `assets/site.css` is shared by the app and legal pages.
 
 ## Adding an app
 
@@ -61,12 +59,12 @@ Copy an existing pair in `legal/`, keep the `<app>-privacy.html` /
 `<app>-support.html` naming, then:
 
 1. Add `<app>-icon.webp` to `assets/apps/` and three plain in-app
-   screenshots (no marketing headlines, no device frame) to
+   screenshots (full screen with the status bar, no marketing headlines,
+   no device frame) to
    `assets/apps/screens/` as `<app>-1.webp` to `<app>-3.webp`, 600px wide.
-   `-1` is the main one and sits in the middle of the card.
-2. In `index.html`, copy an `<article class="card">` in the right group and
-   change the name, description, store link, tint and screenshots. Add the
-   icon to the icon row.
+   `-1` is the main one and shows on the left.
+2. In `index.html`, copy an `<li class="app">` and change the id, name,
+   subtitle, store link and screenshots.
 3. Copy a folder in `apps/` for the app page, and add the app to
    `legal/index.html`.
 
