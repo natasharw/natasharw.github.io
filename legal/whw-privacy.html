@@ -17,16 +17,15 @@
   @media (prefers-color-scheme: dark) {
     body { color: #e6e6e6; background: #121212; }
     a { color: #6ea8fe; }
-    .faq { border-color: #333 !important; }
+    th { background: #1e1e1e !important; }
+    td, th { border-color: #333 !important; }
   }
   h1 { font-size: 1.9rem; margin-bottom: .25rem; }
   h2 { font-size: 1.2rem; margin-top: 2.25rem; }
-  h3 { font-size: 1rem; margin-top: 1.5rem; }
-  .updated, .lede { color: #666; margin-top: 0; }
-  .updated { font-size: .9rem; }
-  .faq { border-top: 1px solid #e2e2e2; padding-top: 1rem; margin-top: 1rem; }
-  .faq h3 { margin: 0 0 .35rem; }
-  .faq p { margin: 0; }
+  .updated { color: #666; font-size: .9rem; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .93rem; }
+  th, td { border: 1px solid #ddd; padding: .55rem .7rem; text-align: left; vertical-align: top; }
+  th { background: #f6f6f6; }
   .back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
 </style>
 </head>
@@ -35,118 +34,219 @@
 <a class="back" href="../">← All apps</a>
 
 <h1>West Highland Way Explorer - Privacy Policy</h1>
-<p class="updated">Effective Date: 2026-05-18</p>
+<p class="updated">Last updated: 21 October 2026</p>
 
-<p>This Privacy Policy explains how the <strong>West Highland Way Explorer App</strong> ("we," "us," or "Service Provider") collects, uses, and protects your information when you use our mobile application ("Application").</p>
+<p>
+  West Highland Way Explorer is a scratch-off map and guide for the West
+  Highland Way in Scotland. You mark the sections you have walked, tick off
+  places in the guide and keep a trail diary. This policy explains what data
+  the app collects, who processes it, and how you can control it.
+</p>
 
-<h2>Information We Collect</h2>
+<p>
+  You can use the map and guide without an account. If you sign in, your
+  walked sections, visited places and diary are saved to your account so they
+  are kept safe and appear on any device you sign in on.
+</p>
 
+<h2>Who is responsible</h2>
+<p>
+  West Highland Way Explorer is made by Natasha Wilson, an independent app
+  developer trading as a sole trader in the United Kingdom. For the purposes of
+  the UK GDPR and EU GDPR, Natasha Wilson is the data controller.
+</p>
+<p>
+  Contact: <a href="mailto:flourishtechcoaching@gmail.com">flourishtechcoaching@gmail.com</a>
+</p>
+
+<h2>Your account</h2>
+<p>
+  Creating an account is optional. If you sign up, the app uses Google
+  Firebase Authentication to store:
+</p>
 <ul>
-  <li><strong>User Authentication Data:</strong> When you register or log in, we collect information such as your unique user ID and email address via Firebase Authentication.</li>
-  <li><strong>User-Generated Content:</strong> We collect and store diary entries, including titles, content, dates, and optional location data you enter within the Application.</li>
-  <li><strong>Device and Usage Data:</strong> We may collect anonymized analytics data to help improve the Application.</li>
-  <li><strong>Purchase Information:</strong> When you make a one-time purchase to unlock premium features, the transaction is processed by Apple. We do not collect or store payment card details. We may receive information such as a transaction identifier or receipt data to verify the purchase and unlock features.</li>
+  <li>Your email address</li>
+  <li>Your password, which Firebase stores in hashed form. We can never see it.</li>
+  <li>A unique user ID, and when the account was created and last signed in</li>
 </ul>
+<p>
+  We also keep a small profile with your email address and the display name
+  you choose, if you set one in Edit profile.
+</p>
 
-<h2>How We Use Your Information</h2>
-
-<p>We use your information for the following purposes:</p>
-
+<h2>What is saved to your account</h2>
+<p>
+  When you are signed in, the following is stored in Google Cloud Firestore
+  under your user ID:
+</p>
 <ul>
-  <li>To authenticate and identify you within the Application</li>
-  <li>To store and display your diary entries</li>
-  <li>To provide features and functionality, including premium features</li>
-  <li>To verify purchases and restore access to premium features</li>
-  <li>To improve, maintain, and debug the Application</li>
+  <li>The sections of the trail you mark as walked: where each one starts and
+      ends, the date you walked it, and any name you give it</li>
+  <li>If you draw a detour off the main route, the line you traced on the map</li>
+  <li>The towns, villages and points of interest you mark as visited, with the
+      date</li>
+  <li>Your diary entries: title, text, date, and the optional location you type
+      in</li>
 </ul>
+<p>
+  Security rules on the database mean only your signed-in account can read or
+  change this data. We do not read your diary or your progress, except where
+  you ask for help with a problem and it is needed to fix it.
+</p>
 
-<p>We do not sell personal data or use your diary content for advertising or marketing purposes.</p>
+<h2>Data kept on your device</h2>
+<p>
+  Some things stay on your iPhone or iPad and are never sent to us: the name
+  you enter during onboarding, your units and map layer preferences, and
+  whether you have finished onboarding. They are removed when you delete the
+  app.
+</p>
 
-<h2>Legal Basis for Processing (if applicable under GDPR)</h2>
+<h2>Location</h2>
+<p>
+  Showing your position on the map is optional and off until you turn it on.
+  When it is on, the app uses your location only to draw the blue dot on the
+  Scratch Map. Your location is never recorded, never saved to your account
+  and never sent to us. You can turn it off in the app's Settings, or in the
+  iOS Settings app under Privacy &amp; Security, then Location Services.
+</p>
+<p>
+  When you add a section by typing an address, or save a section on the map,
+  the app uses Apple's map services to look up place names for the start and
+  end points. Those lookups are about points on the trail, not about where you
+  are.
+</p>
 
-<p>If you are located in the UK or European Economic Area (EEA), we process your personal data under the following legal bases:</p>
+<h2>Usage analytics and crash reports</h2>
+<p>
+  The app uses Google Firebase Analytics to understand which features people
+  use, for example which tabs are opened and when a section is saved. Firebase
+  links these events to a random app instance ID. It also receives basic device
+  information such as model, iOS version, language and approximate country.
+  Analytics events never include your email, your name, your diary text or
+  your location.
+</p>
+<p>
+  The app uses Firebase Crashlytics to collect crash reports and error
+  reports, so problems can be found and fixed. These include the device model,
+  iOS version, app version and details of the error. They do not include your
+  email, your name or your diary text.
+</p>
+<p>
+  The app does not show ads, does not use the advertising identifier and does
+  not track you across other companies' apps or websites.
+</p>
 
+<h2>App integrity checks</h2>
+<p>
+  The app uses Firebase App Check, which relies on Apple's App Attest, to
+  confirm that requests to the database come from the real app. This uses a
+  token from Apple about the app install, not about you.
+</p>
+
+<h2>Purchases</h2>
+<p>
+  The Pro upgrade is an optional one-time purchase. Purchases are
+  handled by <strong>Apple</strong> and managed through
+  <strong>RevenueCat</strong>, which processes:
+</p>
 <ul>
-  <li><strong>Contractual necessity:</strong> To provide the Application and its features</li>
-  <li><strong>Legitimate interests:</strong> To improve and maintain the Application</li>
-  <li><strong>Legal obligations:</strong> Where required by law</li>
+  <li>An app user ID. This is a random ID, or your account's user ID if you
+      are signed in, so the purchase can follow you to other devices.</li>
+  <li>Purchase history</li>
+  <li>Country of purchase and basic device information</li>
 </ul>
+<p>
+  We never see or receive your payment card details. Those go to Apple alone.
+</p>
 
-<h2>How We Store Your Data</h2>
+<h2>Summary of third parties</h2>
+<table>
+  <thead>
+    <tr><th>Service</th><th>Purpose</th><th>Applies when</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Google Firebase (Authentication, Firestore, App Check)</td>
+      <td>Your account and saved progress and diary</td>
+      <td>You create an account or sign in</td>
+    </tr>
+    <tr>
+      <td>Google Firebase (Analytics, Crashlytics)</td>
+      <td>Feature usage, crash and error reports</td>
+      <td>You use the app</td>
+    </tr>
+    <tr>
+      <td>RevenueCat</td>
+      <td>Managing the one-time purchase and restoring it</td>
+      <td>You use the app</td>
+    </tr>
+    <tr>
+      <td>Apple</td>
+      <td>Payments, App Store delivery, map place names, App Attest</td>
+      <td>You use the app</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  We do not sell your data or share it with anyone for advertising. See
+  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy information</a>,
+  <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a>
+  and
+  <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.
+  Google may process data outside the UK, under the safeguards set out in its
+  data processing terms.
+</p>
 
-<ul>
-  <li>Data is stored securely using Google Firebase services (Firestore, Firebase Storage).</li>
-  <li>Access to your data is restricted using Firebase Security Rules.</li>
-  <li>Data is encrypted in transit and at rest using industry-standard security measures.</li>
-</ul>
+<h2>Lawful basis</h2>
+<p>
+  Storing your account, progress and diary is needed to provide the service you
+  signed up for (contract). Analytics, crash reports and integrity checks are
+  used to keep the app working and improve it (legitimate interests).
+</p>
 
-<h2>Third-Party Services</h2>
+<h2>Children</h2>
+<p>
+  West Highland Way Explorer is a general-audience app and is not directed at
+  children under 13. We do not knowingly collect personal data from children.
+  If you believe a child has provided personal data, please contact us and we
+  will act on it.
+</p>
 
-<p>We use the following third-party services:</p>
+<h2>Your rights</h2>
+<p>
+  If you are in the UK or EEA, you have the right to access, correct, or erase
+  your personal data, to object to or restrict its processing, and to data
+  portability.
+</p>
+<p>
+  You can delete individual sections, visited places and diary entries in the
+  app at any time. To delete everything, open the <strong>Account</strong> tab
+  and tap <strong>Delete account</strong>. This permanently removes your
+  account, profile, walked sections, visited places and diary entries.
+</p>
+<p>
+  For anything else, contact us at
+  <a href="mailto:flourishtechcoaching@gmail.com">flourishtechcoaching@gmail.com</a>.
+  You also have the right to complain to your local supervisory authority. In
+  the UK, that is the
+  <a href="https://ico.org.uk" target="_blank" rel="noopener">Information Commissioner's Office</a>.
+</p>
 
-<ul>
-  <li>Google Firebase (Authentication, Firestore, Storage, Cloud Functions)</li>
-  <li>Apple App Store (payment processing, purchase verification, and receipt validation)</li>
-</ul>
+<h2>Data retention</h2>
+<p>
+  Your account data is kept until you delete it, or delete your account.
+  Analytics and crash data are kept by Google, and purchase records by
+  RevenueCat and Apple, according to their own published policies, linked
+  above.
+</p>
 
-<p>These third parties process data in accordance with their own privacy policies. We do not share your personal data with third parties for advertising purposes.</p>
-
-<h2>In-App Purchases</h2>
-
-<ul>
-  <li>Premium features are unlocked via a <strong>one-time, non-consumable in-app purchase</strong>.</li>
-  <li>Payments are processed by Apple through your App Store account.</li>
-  <li>We do not have access to your payment details (e.g., credit card or billing information).</li>
-  <li>We may store purchase status and validate receipts to ensure access to purchased features and to allow restoration of purchases across devices linked to your Apple ID.</li>
-</ul>
-
-<h2>Admin Access</h2>
-
-<ul>
-  <li>Your diary entries are private and visible only to you.</li>
-  <li>We do not access or review your content except when strictly necessary (e.g., support requests, troubleshooting, legal obligations, or abuse prevention).</li>
-</ul>
-
-<h2>Your Rights and Choices</h2>
-
-<p>You have the right to:</p>
-
-<ul>
-  <li>Access the personal data we hold about you</li>
-  <li>Request correction or deletion of your data</li>
-  <li>Request a copy of your data</li>
-  <li>Withdraw consent where applicable</li>
-</ul>
-
-<p>You can:</p>
-
-<ul>
-  <li>Delete diary entries within the Application</li>
-  <li>Request account deletion by contacting us at <a href="mailto:flourishtechcoaching@gmail.com">flourishtechcoaching@gmail.com</a></li>
-</ul>
-
-<h2>Data Retention</h2>
-
-<p>We retain your data only for as long as necessary to provide the Application and fulfill the purposes outlined in this policy, unless a longer retention period is required by law.</p>
-
-<h2>Security</h2>
-
-<p>We implement appropriate technical and organizational measures to protect your data. However, no system can be guaranteed to be completely secure.</p>
-
-<h2>Children’s Privacy</h2>
-
-<ul>
-  <li>The Application is not intended for children under 13.</li>
-  <li>We do not knowingly collect personal data from children under 13.</li>
-</ul>
-
-<h2>Changes to This Privacy Policy</h2>
-
-<p>We may update this Privacy Policy periodically. Updates will be posted within the Application with a revised effective date.</p>
-
-<h2>Contact Us</h2>
-
-<p>If you have any questions or concerns about this Privacy Policy, please contact: <a href="mailto:flourishtechcoaching@gmail.com">flourishtechcoaching@gmail.com</a></p>
+<h2>Changes to this policy</h2>
+<p>
+  If this policy changes materially, the date at the top of this page will be
+  updated. Continued use of the app after a change means you accept the
+  revised policy.
+</p>
 
 </body>
 </html>
