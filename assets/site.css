@@ -52,15 +52,13 @@ img { display: block; max-width: 100%; height: auto; }
 .facts li { padding: 4px 11px; border-radius: 999px; background: var(--soft); border: 1px solid var(--line); }
 .stars { color: #b07d00; letter-spacing: 1px; }
 
-.award {
-  position: relative; z-index: 1;
-  display: inline-flex; align-items: center; gap: 6px; width: fit-content;
-  padding: 4px 11px 4px 9px; border-radius: 999px;
-  background: #fbf3dc; border: 1px solid #ecd59a; color: #6b4e0c;
-  font-size: .8rem; font-weight: 600; text-decoration: none;
-}
-.award svg { width: 14px; height: 14px; }
-.award:hover { border-color: #b88a1c; }
+/* Award under the subtitle. The medal hangs on its own, so a wrapped second line lines up under the placing */
+.award-line { margin: 0; font-size: .9rem; line-height: 1.35; }
+.award-line a { position: relative; z-index: 1; display: inline-grid; grid-template-columns: auto 1fr; column-gap: 6px; color: var(--muted); text-decoration: none; }
+.award-line svg { width: 15px; height: 15px; margin-top: 1px; }
+.award-line b { margin-right: 3px; color: #7a5300; font-weight: 700; }
+.award-line.bronze b { color: #7a4320; }
+.award-line a:hover span { text-decoration: underline; }
 
 /* The dotted trail line between sections, with a start dot and an end ring */
 .trail-line { position: relative; height: 44px; margin: 56px 6px 40px; color: #b9c9c5; }
